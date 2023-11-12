@@ -1,5 +1,5 @@
 /*
-2. Write a C# Sharp program to print the sum of two numbers.
+3. Write a C# Sharp program to print the result of dividing two numbers.
 */
 namespace Exercises
 {
@@ -15,6 +15,12 @@ namespace Exercises
         {
             int a = 45, b = -8, res = a + b;
             System.Console.WriteLine("sum: {0} + {1} = {2}", a, b, res);
+        }
+
+        public static void SolveExercise3()
+        {
+            double a = 11D, b = 2, res = a / b;
+            System.Console.WriteLine("div: {0} / {1} = {2}", a, b, res);
         }
     }
 }
