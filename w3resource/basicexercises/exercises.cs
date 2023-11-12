@@ -1,7 +1,5 @@
 /*
-1. Write a C# Sharp program to print Hello and your name in a separate line.
-Expected Output :
-Hello: Alexandra Abramov
+2. Write a C# Sharp program to print the sum of two numbers.
 */
 namespace Exercises
 {
@@ -11,6 +9,12 @@ namespace Exercises
         {
             var myName = "Juan";
             System.Console.WriteLine("Hello:\n" + myName);
+        }
+
+        public static void SolveExercise2()
+        {
+            int a = 45, b = -8, res = a + b;
+            System.Console.WriteLine("sum: {0} + {1} = {2}", a, b, res);
         }
     }
 }
