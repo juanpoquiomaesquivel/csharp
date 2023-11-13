@@ -1,15 +1,15 @@
 /*
-1. Write a C# Sharp program to compute the sum of the two numerical 
-values. If the two values are the same, return triple their sum.
+2. Write a C# Sharp program to get the absolute difference between n and 51. 
+If n is broader than 51 return triple the absolute difference.
 
 Sample Input:
-1, 2
-3, 2
-2, 2
+53
+30
+51
 Expected Output:
-3
-5
-12
+6
+21
+0
 */
 namespace Exercises
 {
@@ -32,6 +32,23 @@ namespace Exercises
             int sum = num1 + num2;
 
             return (num1 == num2 ? 3 * sum : sum);
+        }
+
+        public static void SolveExercise2()
+        {
+            int n = 53;
+            System.Console.WriteLine($"n: {n} -> {exe2_abs(n)}");
+            n = 30;
+            System.Console.WriteLine($"n: {n} -> {exe2_abs(n)}");
+            n = 51;
+            System.Console.WriteLine($"n: {n} -> {exe2_abs(n)}");
+        }
+
+        private static int exe2_abs(int N)
+        {
+            int abs = N - 51;
+
+            return (N > 51 ? 3 * abs : -abs);
         }
     }
 }
