@@ -1,15 +1,14 @@
 /*
-4. Write a C# Sharp program to check a given integer and return true if
-it is within 10 of 100 or 200.
+5. Write a C# Sharp program to create a string where 'if'
+is added to the front of a given string. If the string already
+begins with 'if', return it unchanged.
 
 Sample Input:
-103
-90
-89
+"if else"
+"else"
 Expected Output:
-True
-True
-False
+if else
+if else
 */
 namespace Exercises
 {
@@ -86,6 +85,21 @@ namespace Exercises
         private static bool exe4_verify(int x)
         {
             return Math.Abs(x - 100) <= 10 || Math.Abs(x - 200) <= 10;
+        }
+
+        public static void SolveExercise5()
+        {
+            string str = "if else";
+            System.Console.WriteLine("{0}", exe4_concat(str));
+            str = "else";
+            System.Console.WriteLine("{0}", exe4_concat(str));
+        }
+
+        private static string exe4_concat(string word)
+        {
+            string aux = (word.Length <= 2 ? word : word.Substring(0, 2));
+
+            return (aux.Equals("if") ? word : "if " + word);
         }
     }
 }
