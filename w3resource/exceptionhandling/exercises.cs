@@ -1,6 +1,7 @@
 /*
-1. Write a C# program that prompts the user to input two numbers
-and divides them. Handle an exception when the user enters non-numeric values.
+2. Write a C# program to implement a method that takes an integer as
+input and throws an exception if the number is negative. Handle the
+exception in the calling code.
 */
 namespace Exercises
 {
@@ -16,7 +17,7 @@ namespace Exercises
                 do
                 {
                     System.Console.Write("Number 1: ");
-                    input = System.Console.ReadLine();
+                    input = System.Console.ReadLine()!;
                 } while (input == null || input.Replace(" ", "").Length == 0);
 
                 num1 = Convert.ToDouble(input);
@@ -29,7 +30,7 @@ namespace Exercises
                 do
                 {
                     System.Console.Write("Number 2: ");
-                    input = System.Console.ReadLine();
+                    input = System.Console.ReadLine()!;
                 } while (input == null || input.Replace(" ", "").Length == 0);
 
                 num2 = Convert.ToDouble(input);
@@ -42,7 +43,7 @@ namespace Exercises
                 else
                     System.Console.WriteLine($"Result: {num1 / num2}");
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
                 System.Console.WriteLine("Error: Non-numeric value was typed.");
             }
@@ -59,5 +60,47 @@ namespace Exercises
                 System.Console.WriteLine($"Error: {ex.Message}");
             }
         }
+
+        public static void SolveExercise2()
+        {
+            try
+            {
+                string input;
+                int integer;
+
+                do
+                {
+                    System.Console.Write("Integer: ");
+                    input = System.Console.ReadLine()!;
+                } while (input == null || input.Replace(" ", "").Length == 0);
+
+                integer = Convert.ToInt32(input);
+
+                if (integer < 0)
+                    throw new NegativeNumberException("Entered number was negative.");
+            }
+            catch (FormatException)
+            {
+                System.Console.WriteLine("Error: Non-numeric value was typed.");
+            }
+            catch (OverflowException ex)
+            {
+                System.Console.WriteLine($"Error: {ex.Message}");
+            }
+            catch (NegativeNumberException ex)
+            {
+                System.Console.WriteLine($"Error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+    }
+
+    class NegativeNumberException : Exception
+    {
+        public NegativeNumberException(string message)
+            : base(message) { }
     }
 }
