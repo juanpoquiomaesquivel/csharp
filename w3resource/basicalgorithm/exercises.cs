@@ -1,14 +1,12 @@
 /*
-3. Write a C# Sharp program to check two given integers, and return true if
-one of them is 30 or if their sum is 30.
+4. Write a C# Sharp program to check a given integer and return true if
+it is within 10 of 100 or 200.
 
 Sample Input:
-30, 0
-25, 5
-20, 30
-20, 25
+103
+90
+89
 Expected Output:
-True
 True
 True
 False
@@ -73,6 +71,21 @@ namespace Exercises
         private static bool exe3_verify(int num1, int num2)
         {
             return (num1 == 30 || num2 == 30) || (num1 + num2 == 30);
+        }
+
+        public static void SolveExercise4()
+        {
+            int num = 103;
+            System.Console.WriteLine($"num: {num} -> {exe4_verify(num)}");
+            num = 90;
+            System.Console.WriteLine($"num: {num} -> {exe4_verify(num)}");
+            num = 89;
+            System.Console.WriteLine($"num: {num} -> {exe4_verify(num)}");
+        }
+
+        private static bool exe4_verify(int x)
+        {
+            return Math.Abs(x - 100) <= 10 || Math.Abs(x - 200) <= 10;
         }
     }
 }
