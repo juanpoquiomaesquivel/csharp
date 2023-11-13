@@ -1,7 +1,6 @@
 /*
-2. Write a C# program to implement a method that takes an integer as
-input and throws an exception if the number is negative. Handle the
-exception in the calling code.
+3. Write a C# program that reads a file path from the user and tries to
+open the file. Handle exceptions if the file does not exist.
 */
 namespace Exercises
 {
@@ -94,6 +93,36 @@ namespace Exercises
             catch (Exception ex)
             {
                 System.Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
+        public static void SolveExercise3()
+        {
+            string filePath =
+                "C:\\Users_\\Personal\\csharp\\w3resource\\basicexercises\\exercises_.cs";
+
+            try
+            {
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    Console.WriteLine("File opened successfully.");
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Error: File was not found.");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine("Error: Directories may be incorrect.");
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
     }
