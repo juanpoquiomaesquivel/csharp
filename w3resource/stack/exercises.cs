@@ -1,6 +1,5 @@
 /*
-1. Write a C# program to implement a stack with Push and pop operations.
-Find the top element of the stack and check if the stack is empty or not.
+2. Write a C# program to sort the elements of a given stack in descending order.
 */
 namespace Exercises
 {
@@ -24,6 +23,24 @@ namespace Exercises
             stack.Pop();
             stack.Pop();
             stack.Show();
+        }
+
+        public static void SolveExercise2()
+        {
+            JxStack stack = new JxStack();
+            stack.Push(15);
+            stack.Push(-7);
+            stack.Push(-7);
+            stack.Push(11);
+            stack.Push(-15);
+            stack.Push(2);
+            stack.Push(0);
+            stack.Push(45);
+            stack.Push(-7);
+            stack.Show();
+
+            JxStack stackDesc = stack.SortDesc();
+            stackDesc.Show();
         }
     }
 
@@ -59,6 +76,52 @@ namespace Exercises
             return this._root?.Value;
         }
 
+        public JxStack SortDesc()
+        {
+            JxStack stackDesc = new JxStack();
+
+            if (!this.IsEmpty())
+            {
+                JxNode? aux;
+                bool flag;
+                int count,
+                    min,
+                    minIgnore = Int32.MinValue;
+
+                do
+                {
+                    aux = this._root;
+                    flag = false;
+                    count = 1;
+                    min = Int32.MaxValue;
+
+                    do
+                    {
+                        if (aux!.Value <= min && aux!.Value > minIgnore)
+                        {
+                            if (aux!.Value == min)
+                                count++;
+
+                            min = aux!.Value;
+                            flag = true;
+                        }
+
+                        aux = aux.Next;
+                    } while (aux != null);
+
+                    if (flag)
+                    {
+                        for (int i = 0; i < count; i++)
+                            stackDesc.Push(min);
+
+                        minIgnore = min;
+                    }
+                } while (flag);
+            }
+
+            return stackDesc;
+        }
+
         public void Show()
         {
             if (!this.IsEmpty())
@@ -83,6 +146,14 @@ namespace Exercises
         {
             public int Value;
             public JxNode? Next;
+
+            public JxNode() { }
+
+            public JxNode(int value)
+            {
+                this.Value = value;
+                this.Next = null;
+            }
         }
     }
 }
