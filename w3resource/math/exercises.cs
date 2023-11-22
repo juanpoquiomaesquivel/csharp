@@ -1,37 +1,22 @@
 /*
-1. Write a C# Sharp program to get the absolute value of a number of Decimal values, Double values, Int16 values, Int32 values and Int64 values.
+2. Write a C# Sharp program to find the maximum and smallest value of two variables.
 Expected Output:
-Absolute value of a number of Decimal values:
-Abs(79228162514264337593543950335) = 79228162514264337593543950335
-Abs(15.55) = 15.55
-Abs(0) = 0
-Abs(-17.23) = 17.23
-Abs(-79228162514264337593543950335) = 79228162514264337593543950335
-Absolute value of a number of Double values:
-Abs(1.79769313486232E+308) = 1.79769313486232E+308
-Abs(1.5354E-16) = 1.5354E-16
-Abs(14.098123) = 14.098123
-Abs(0) = 0
-Abs(-17.069713) = 17.069713
-Abs(-1.4058E+19) = 1.4058E+19
-Abs(-1.79769313486232E+308) = 1.79769313486232E+308
-Absolute value of a number of Int16 values:
-Abs(32767) = 32767
-Abs(10328) = 10328
-Abs(0) = 0
-Abs(-1476) = 1476
-Unable to calculate the absolute value of -32768.
-Absolute value of a number of Int32 values:
-Abs(2147483647) = 2147483647
-Abs(16921) = 16921
-Abs(0) = 0
-Abs(-804128) = 804128
-Unable to calculate the absolute value of -2147483648.
-Absolute value of a number of Int64 values:
-Abs(9223372036854775807) = 9223372036854775807 Abs(109013) = 109013
-Abs(0) = 0
-Abs(-6871982) = 6871982
-Unable to calculate the absolute value of -9223372036854775808.
+Display the greater of two values:
+Byte : The greater of 1 and 51 is 51.
+Int16 : The greater of -2 and 52 is 52.
+Int32 : The greater of -3 and 53 is 53.
+Int64 : The greater of -4 and 54 is 54.
+Single : The greater of 5 and 55 is 55.
+Double : The greater of 6 and 56 is 56.
+Decimal: The greater of 7 and 57 is 57.
+Display the lesser of two values:
+Byte : The lesser of 1 and 51 is 1.
+Int16 : The lesser of -2 and 52 is -2.
+Int32 : The lesser of -3 and 53 is -3.
+Int64 : The lesser of -4 and 54 is -4.
+Single : The lesser of 5 and 55 is 5.
+Double : The lesser of 6 and 56 is 6.
+Decimal: The lesser of 7 and 57 is 7.
 */
 namespace Exercises
 {
@@ -104,6 +89,111 @@ namespace Exercises
                     Console.WriteLine("Unable to calculate the absolute value of {0}.", value);
                 }
             }
+        }
+
+        public static void SolveExercise2()
+        {
+            byte[] bytes = { 1, 51 };
+            short[] int16s = { -2, 52 };
+            int[] int32s = { -3, 53 };
+            long[] int64s = { -4, 54 };
+            float[] singles = { 5.0f, 55.0f };
+            double[] doubles = { 6.0, 56.0 };
+            decimal[] decimals = { 7m, 57m };
+
+            string str = "{0}: The greater of {1,3} and {2,3} is {3}.";
+
+            Console.WriteLine("Display the greater of two values:\n");
+            Console.WriteLine(str, "Byte      ", bytes[0], bytes[1], Math.Max(bytes[0], bytes[1]));
+            Console.WriteLine(
+                str,
+                "Int16     ",
+                int16s[0],
+                int16s[1],
+                Math.Max(int16s[0], int16s[1])
+            );
+            Console.WriteLine(
+                str,
+                "Int32     ",
+                int32s[0],
+                int32s[1],
+                Math.Max(int32s[0], int32s[1])
+            );
+            Console.WriteLine(
+                str,
+                "Int64     ",
+                int64s[0],
+                int64s[1],
+                Math.Max(int64s[0], int64s[1])
+            );
+            Console.WriteLine(
+                str,
+                "Single    ",
+                singles[0],
+                singles[1],
+                Math.Max(singles[0], singles[1])
+            );
+            Console.WriteLine(
+                str,
+                "Double    ",
+                doubles[0],
+                doubles[1],
+                Math.Max(doubles[0], doubles[1])
+            );
+            Console.WriteLine(
+                str,
+                "Decimal   ",
+                decimals[0],
+                decimals[1],
+                Math.Max(decimals[0], decimals[1])
+            );
+
+            str = "{0}: The lesser of {1,3} and {2,3} is {3}.";
+
+            Console.WriteLine("\nDisplay the lesser of two values:\n");
+            Console.WriteLine(str, "Byte      ", bytes[0], bytes[1], Math.Min(bytes[0], bytes[1]));
+            Console.WriteLine(
+                str,
+                "Int16     ",
+                int16s[0],
+                int16s[1],
+                Math.Min(int16s[0], int16s[1])
+            );
+            Console.WriteLine(
+                str,
+                "Int32     ",
+                int32s[0],
+                int32s[1],
+                Math.Min(int32s[0], int32s[1])
+            );
+            Console.WriteLine(
+                str,
+                "Int64     ",
+                int64s[0],
+                int64s[1],
+                Math.Min(int64s[0], int64s[1])
+            );
+            Console.WriteLine(
+                str,
+                "Single    ",
+                singles[0],
+                singles[1],
+                Math.Min(singles[0], singles[1])
+            );
+            Console.WriteLine(
+                str,
+                "Double    ",
+                doubles[0],
+                doubles[1],
+                Math.Min(doubles[0], doubles[1])
+            );
+            Console.WriteLine(
+                str,
+                "Decimal   ",
+                decimals[0],
+                decimals[1],
+                Math.Min(decimals[0], decimals[1])
+            );
         }
     }
 }
