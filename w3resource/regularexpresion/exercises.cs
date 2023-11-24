@@ -1,11 +1,12 @@
 /*
-1. Write a C# Sharp program to check whether a given string is a valid Hex code or not. Return true if this string is a valid code otherwise false.
+2. Write a C# Sharp program to calculate the average word length in a given string.
+Round the average length up to two decimal places.
 Sample Data:
-("#CD5C5C") -> True
-("#f08080") -> True
-("#E9967A") -> True
-("#EFFA07A") -> False
+("CPP Exercises." -> 6
+("C# syntax is highly expressive, yet it is also simple and easy to learn.") -> 4
+(“C# is an elegant and type-safe object-oriented language") -> 5.62
 */
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Exercises
@@ -27,6 +28,22 @@ namespace Exercises
         private static bool _exe1_regexHexColor(string hexColor)
         {
             return Regex.IsMatch(hexColor, @"[#][0-9A-Fa-f]{6}\b");
+        }
+        public static void SolveExercise2()
+        {
+            string text = "#CPP Exercises.";
+            System.Console.WriteLine("(\"{0}\") -> {1}", text, _exe2_regexAverage(text));
+            text = "C# syntax is highly expressive, yet it is also simple and easy to learn.";
+            System.Console.WriteLine("(\"{0}\") -> {1}", text, _exe2_regexAverage(text));
+            text = "C# is an elegant and type-safe object-oriented language";
+            System.Console.WriteLine("(\"{0}\") -> {1}", text, _exe2_regexAverage(text));
+        }
+
+        private static double _exe2_regexAverage(string text)
+        {
+            string newText = Regex.Replace(text, "[^A-Za-z ]", "");
+            double len = newText.Split(' ').Select(x => x.Length).Average();
+            return Math.Round(len, 2);
         }
     }
 }
