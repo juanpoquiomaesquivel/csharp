@@ -1,14 +1,16 @@
 /*
-1. Write a C# Sharp program to extract the Date property and display the DateTime
-value in the formatted output.
+2. Write a C# Sharp program to display the Day properties (year, month, day,
+hour, minute, second, millisecond etc.).
 
-Expected Output:
+Expected Output :
 
-Complete date: 6/8/2016 11:49:00 AM
-Short Date: 6/8/2016
-Display date using 24-hour clock format:
-6/8/2016 12:00 AM
-06/08/2016 00:00
+year = 2016
+month = 8
+day = 16
+hour = 3
+minute = 57
+second = 32
+millisecond = 11
 */
 namespace Exercises
 {
@@ -22,6 +24,18 @@ namespace Exercises
             System.Console.WriteLine("Display date using 24-hour clock format:");
             System.Console.WriteLine($"{dt.Date.ToString("g")}");
             System.Console.WriteLine($"{dt.Date.ToString("dd/MMMM/yyyy HH:mm")}");
+        }
+
+        public static void SolveExercise2()
+        {
+            DateTime dt = new DateTime(2018, 11, 13, 14, 23, 10, 22);
+            System.Console.WriteLine($"year: {dt.Year}");
+            System.Console.WriteLine($"month: {dt.Month}");
+            System.Console.WriteLine($"day: {dt.Day}");
+            System.Console.WriteLine($"hour: {dt.Hour}");
+            System.Console.WriteLine($"minute: {dt.Minute}");
+            System.Console.WriteLine($"seconds: {dt.Second}");
+            System.Console.WriteLine($"millisecond: {dt.Millisecond}");
         }
     }
 }
