@@ -1,15 +1,18 @@
 /*
-5. Write a C# Sharp program to create a string where 'if'
-is added to the front of a given string. If the string already
-begins with 'if', return it unchanged.
+6. Write a C# Sharp program to remove the character at a given position in the
+string. The given position will be in the range 0..(string length -1) inclusive.
 
 Sample Input:
-"if else"
-"else"
+"Python", 1
+"Python", o
+"Python", 4
 Expected Output:
-if else
-if else
+Pthon
+ython
+Pythn
 */
+using System;
+
 namespace Exercises
 {
     class Solution
@@ -100,6 +103,14 @@ namespace Exercises
             string aux = (word.Length <= 2 ? word : word.Substring(0, 2));
 
             return (aux.Equals("if") ? word : "if " + word);
+        }
+
+        public static void SolveExercise6()
+        {
+            string word = "Python";
+            Console.WriteLine(word.Remove(1, 1));
+            Console.WriteLine(word.Remove(0, 1));
+            Console.WriteLine(word.Remove(4, 1));
         }
     }
 }
