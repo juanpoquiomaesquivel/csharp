@@ -1,7 +1,9 @@
 /*
-3. Write a C# program that reads a file path from the user and tries to
-open the file. Handle exceptions if the file does not exist.
+4. Write a C# program that prompts the user to input a numeric integer and
+throws an exception if the number is less than 0 or greater than 1000.
 */
+using System;
+
 namespace Exercises
 {
     class Solution
@@ -125,11 +127,45 @@ namespace Exercises
                 Console.WriteLine("Error: " + ex.Message);
             }
         }
+
+        public static void SolveExercise4()
+        {
+            try
+            {
+                Console.Write("Input a numeric Integer: ");
+                int number = Convert.ToInt32(Console.ReadLine());
+
+                if (number < 0 || number > 1000)
+                    throw new NumberOutOfRangeException(
+                        "Number out of range. Please enter a number between 0 and 1000."
+                    );
+
+                Console.WriteLine("Valid input: {0}", number);
+            }
+            catch (NumberOutOfRangeException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: Invalid input. Please enter a numeric integer.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error ocurred: " + ex.Message);
+            }
+        }
     }
 
     class NegativeNumberException : Exception
     {
         public NegativeNumberException(string message)
+            : base(message) { }
+    }
+
+    class NumberOutOfRangeException : Exception
+    {
+        public NumberOutOfRangeException(string message)
             : base(message) { }
     }
 }
