@@ -1,6 +1,13 @@
 /*
-3. Write a C# Sharp program that takes userid and password as input (string type).
-After 3 unsuccessful attempts, the user will be rejected.
+4. Write a C# Sharp program that takes two numbers as input and performs an
+operation (+,-,*,x,/) on them and displays the result of that operation.
+
+Test Data
+Input first number: 20
+Input operation: -
+Input second number: 12
+Expected Output :
+20 - 12 = 8
 */
 namespace Exercises
 {
@@ -63,6 +70,44 @@ namespace Exercises
                 Console.WriteLine("Logged successfully.");
             else
                 Console.WriteLine("The login has failed.");
+        }
+
+        public static void SolveExercise4()
+        {
+            string[] operators = { "+", "-", "*", "/" };
+
+            Console.Write("Input the first number: ");
+            int num1 = int.Parse(Console.ReadLine()!);
+
+            Console.Write("Select the operation [+, -, *, /]: ");
+            string op = Console.ReadLine()!;
+
+            Console.Write("Input the second number: ");
+            int num2 = int.Parse(Console.ReadLine()!);
+
+            int res = 0;
+
+            switch (op)
+            {
+                case "+":
+                    res = num1 + num2;
+                    break;
+                case "-":
+                    res = num1 - num2;
+                    break;
+                case "*":
+                    res = num1 * num2;
+                    break;
+                case "/":
+                    res = num1 / num2;
+                    break;
+                default:
+                    Console.WriteLine("The operation is wrong.");
+                    break;
+            }
+
+            if (operators.Contains(op))
+                Console.WriteLine("{0} {1} {2} = {3}", num1, op, num2, res);
         }
     }
 }
