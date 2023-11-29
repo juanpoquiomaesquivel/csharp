@@ -1,17 +1,6 @@
 /*
-2. Write a C# Sharp program that takes a number and a width also a number.
-It then displays a triangle of that width using that number.
-Test Data
-Enter a number: 6
-Enter the desired width: 6
-Expected Output :
-
-666666
-66666
-6666
-666
-66
-6
+3. Write a C# Sharp program that takes userid and password as input (string type).
+After 3 unsuccessful attempts, the user will be rejected.
 */
 namespace Exercises
 {
@@ -47,6 +36,33 @@ namespace Exercises
 
                 System.Console.WriteLine();
             }
+        }
+
+        public static void SolveExercise3()
+        {
+            string user = "user",
+                password = "admin",
+                userInput,
+                passwordInput;
+            int count = 0;
+            bool isSuccessfull;
+
+            do
+            {
+                Console.WriteLine("Please enter your credentials...");
+                count++;
+                Console.Write("User: ");
+                userInput = Console.ReadLine()!;
+                Console.Write("Password: ");
+                passwordInput = Console.ReadLine()!;
+
+                isSuccessfull = userInput.Equals(user) && passwordInput.Equals(password);
+            } while (count < 3 && !isSuccessfull);
+
+            if (isSuccessfull)
+                Console.WriteLine("Logged successfully.");
+            else
+                Console.WriteLine("The login has failed.");
         }
     }
 }
