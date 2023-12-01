@@ -1,8 +1,8 @@
 /*
-3. Write a C# Sharp program to check whether a given number is positive or negative.
-Test Data : 14
+4. Write a C# Sharp program to find out whether a given year is a leap year or not.
+Test Data : 2016
 Expected Output :
-14 is a positive number
+2016 is a leap year.
 */
 using System;
 
@@ -35,6 +35,17 @@ namespace Exercises
             int num = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("The number is {0}.", num >= 0 ? "positive" : "negative");
+        }
+
+        public static void SolveExercise4()
+        {
+            Console.Write("Input the date: ");
+            int year = int.Parse(Console.ReadLine()!);
+            Console.WriteLine(
+                "The year {0} {1} a leap year.",
+                year,
+                year % 4 == 0 ? "is" : "is not"
+            );
         }
     }
 }
