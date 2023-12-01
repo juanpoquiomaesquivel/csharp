@@ -1,9 +1,11 @@
 /*
-2. Write a C# Sharp program to check whether a given number is even or odd.
-Test Data : 15
+3. Write a C# Sharp program to check whether a given number is positive or negative.
+Test Data : 14
 Expected Output :
-15 is an odd integer
+14 is a positive number
 */
+using System;
+
 namespace Exercises
 {
     class Solution
@@ -25,6 +27,14 @@ namespace Exercises
             System.Console.Write("Enter the number: ");
             num = Convert.ToInt32(System.Console.ReadLine());
             System.Console.Write("{0} is an {1} integer", num, num % 2 == 0 ? "even" : "odd");
+        }
+
+        public static void SolveExercise3()
+        {
+            Console.Write("Enter the number: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("The number is {0}.", num >= 0 ? "positive" : "negative");
         }
     }
 }
