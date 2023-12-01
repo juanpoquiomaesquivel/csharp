@@ -1,13 +1,16 @@
 /*
-3. Write a program in C# Sharp to find the sum of all array elements.
+4. Write a C# Sharp program to copy the elements of one array into another array.
 Test Data :
 Input the number of elements to be stored in the array :3
 Input 3 elements in the array :
-element - 0 : 2
-element - 1 : 5
-element - 2 : 8
-Expected Output :
-Sum of all elements stored in the array is : 15
+element - 0 : 15
+element - 1 : 10
+element - 2 : 12
+Expected Output:
+The elements stored in the first array are :
+15 10 12
+The elements copied into the second array are :
+15 10 12
 */
 using System;
 
@@ -70,6 +73,31 @@ namespace Exercises
             }
 
             Console.WriteLine($"The sum of elements stored in the array is: {array.Sum()}");
+        }
+
+        public static void SolveExercise4()
+        {
+            Console.Write("Input the number of elements to be stored in the array: ");
+            int n = int.Parse(Console.ReadLine()!);
+            int[] array = new int[n];
+            int[] copiedArray = new int[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"element-{i}: ");
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            Array.Copy(array, copiedArray, n);
+            Console.WriteLine("\nThe elements stored in the first array are:");
+
+            for (int i = 0; i < n; i++)
+                Console.Write(array[i] + " ");
+
+            Console.WriteLine("\nThe elements copied in the second array are:");
+
+            for (int i = 0; i < n; i++)
+                Console.Write(copiedArray[i] + " ");
         }
     }
 }
