@@ -1,10 +1,13 @@
 /*
-2. Write a C# Sharp program to find the sum of the first 10 natural numbers.
+3. Write a C# Sharp program that displays the sum of n natural numbers.
+Test Data : 7
 Expected Output :
-The first 10 natural number is :
-1 2 3 4 5 6 7 8 9 10
-The Sum is : 55
+The first 7 natural number is :
+1 2 3 4 5 6 7
+The Sum of Natural Number upto 7 terms : 28
 */
+using System;
+
 namespace Exercises
 {
     class Solution
@@ -27,6 +30,18 @@ namespace Exercises
             }
 
             System.Console.WriteLine("\nThe sum is: {0}", sum);
+        }
+
+        public static void SolveExercise3()
+        {
+            Console.Write("Enter the 'n' number: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int sum = 0;
+
+            for (int i = 1; i <= n; i++)
+                sum += i;
+
+            Console.WriteLine("The sum of natural numbers up to {0} terms is: {1}", n, sum);
         }
     }
 }
