@@ -1,5 +1,5 @@
 /*
-2. Write a C# program to sort the elements of a given stack in descending order.
+3. Write a C# program to sort the elements of a given stack in ascending order.
 */
 namespace Exercises
 {
@@ -41,6 +41,24 @@ namespace Exercises
 
             JxStack stackDesc = stack.SortDesc();
             stackDesc.Show();
+        }
+
+        public static void SolveExercise3()
+        {
+            JxStack stack = new JxStack();
+            stack.Push(15);
+            stack.Push(-7);
+            stack.Push(-7);
+            stack.Push(11);
+            stack.Push(-15);
+            stack.Push(2);
+            stack.Push(0);
+            stack.Push(45);
+            stack.Push(-7);
+            stack.Show();
+
+            JxStack stackAsc = stack.SortAsc();
+            stackAsc.Show();
         }
     }
 
@@ -120,6 +138,52 @@ namespace Exercises
             }
 
             return stackDesc;
+        }
+
+        public JxStack SortAsc()
+        {
+            JxStack stackAsc = new JxStack();
+
+            if (!this.IsEmpty())
+            {
+                JxNode? aux;
+                bool flag;
+                int count,
+                    max,
+                    maxIgnore = Int32.MaxValue;
+
+                do
+                {
+                    aux = this._root;
+                    flag = false;
+                    count = 1;
+                    max = Int32.MinValue;
+
+                    do
+                    {
+                        if (aux!.Value >= max && aux!.Value < maxIgnore)
+                        {
+                            if (aux!.Value == max)
+                                count++;
+
+                            max = aux!.Value;
+                            flag = true;
+                        }
+
+                        aux = aux.Next;
+                    } while (aux != null);
+
+                    if (flag)
+                    {
+                        for (int i = 0; i < count; i++)
+                            stackAsc.Push(max);
+
+                        maxIgnore = max;
+                    }
+                } while (flag);
+            }
+
+            return stackAsc;
         }
 
         public void Show()

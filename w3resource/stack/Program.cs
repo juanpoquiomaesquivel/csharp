@@ -5,11 +5,11 @@ using Exercises;
 
 namespace W3Resource
 {
-    class ForLoop
+    class Stack
     {
         public static void Main(string[] args)
         {
-            Solution.SolveExercise2();
+            Solution.SolveExercise3();
         }
     }
 }
