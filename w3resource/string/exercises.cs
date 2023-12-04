@@ -1,11 +1,14 @@
 /*
-2. Write a C# Sharp program to find the length of a string without using a library function.
+3. Write a C# Sharp program to separate individual characters from a string.
 Test Data :
 Input the string : w3resource.com
 Expected Output :
 
-Length of the string is : 15 
+The characters of the string are :
+w  3  r  e  s  o  u  r  c  e  .  c  o  m
 */
+using System;
+
 namespace Exercises
 {
     class Solution
@@ -27,6 +30,17 @@ namespace Exercises
                 i++;
 
             System.Console.WriteLine("Length of the string: {0}", i);
+        }
+
+        public static void SolveExercise3()
+        {
+            Console.Write("Input the prhase: ");
+            string phrase = Console.ReadLine()!;
+
+            Console.WriteLine("The characters of the string are: ");
+
+            foreach (char c in phrase)
+                Console.Write(c + " ");
         }
     }
 }
