@@ -1,5 +1,5 @@
 /*
-3. Write a C# program to sort the elements of a given stack in ascending order.
+Write a C# program to reverse the elements of a given stack.
 */
 namespace Exercises
 {
@@ -59,6 +59,24 @@ namespace Exercises
 
             JxStack stackAsc = stack.SortAsc();
             stackAsc.Show();
+        }
+
+        public static void SolveExercise4()
+        {
+            JxStack stack = new JxStack();
+            stack.Push(15);
+            stack.Push(-7);
+            stack.Push(-7);
+            stack.Push(11);
+            stack.Push(-15);
+            stack.Push(2);
+            stack.Push(0);
+            stack.Push(45);
+            stack.Push(-7);
+            stack.Show();
+
+            JxStack stackRev = stack.Reverse();
+            stackRev.Show();
         }
     }
 
@@ -184,6 +202,24 @@ namespace Exercises
             }
 
             return stackAsc;
+        }
+
+        public JxStack Reverse()
+        {
+            JxStack stackRev = new JxStack();
+
+            if (!this.IsEmpty())
+            {
+                JxNode? aux = this._root;
+
+                do
+                {
+                    stackRev.Push(aux!.Value);
+                    aux = aux.Next;
+                } while (aux != null);
+            }
+
+            return stackRev;
         }
 
         public void Show()
