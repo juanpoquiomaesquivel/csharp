@@ -1,6 +1,8 @@
 /*
-1. Write a C# Sharp program to sort a list of elements using Shell sort.
+2. Write a C# Sharp program to sort a list of elements using Bogosort sort.
 */
+using System;
+
 namespace Exercises
 {
     class Solution
@@ -40,6 +42,65 @@ namespace Exercises
 
                 array[k + rsn] = aux;
             }
+        }
+
+        public static void SolveExercise2()
+        {
+            List<int> array = new List<int>() { 1, 8, -6, 0, 25, -78 };
+            int n = array.Count;
+
+            for (int i = 0; i < n; i++)
+                Console.Write(array[i] + " ");
+
+            Console.WriteLine();
+            array = _exe2_bogoSort(array.ToList());
+            Console.WriteLine("\nAfter bogo sort...");
+
+            for (int i = 0; i < n; i++)
+                Console.Write(array[i] + " ");
+        }
+
+        private static List<int> _exe2_bogoSort(List<int> array)
+        {
+            int ite = 0;
+
+            while (!_exe2_isSorted(array))
+            {
+                Console.Write("Iteration {0} -> ", ite++);
+
+                for (int i = 0; i < array.Count; i++)
+                    Console.Write(array[i] + " ");
+
+                Console.WriteLine();
+                array = _exe2_reMap(array);
+            }
+
+            return array;
+        }
+
+        private static bool _exe2_isSorted(List<int> array)
+        {
+            for (int i = 0; i < array.Count - 1; i++)
+                if (array[i] > array[i + 1])
+                    return false;
+
+            return true;
+        }
+
+        private static List<int> _exe2_reMap(List<int> array)
+        {
+            int temp;
+            List<int> newArray = new List<int>();
+            Random r = new Random();
+
+            while (array.Count > 0)
+            {
+                temp = (int)r.Next(array.Count);
+                newArray.Add(array[temp]);
+                array.RemoveAt(temp);
+            }
+
+            return newArray;
         }
     }
 }
