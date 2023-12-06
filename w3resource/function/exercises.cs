@@ -1,10 +1,9 @@
 /*
-3. Write a program in C# Sharp to create a function for the sum of two numbers.
+4. Write a program in C# Sharp to create a function to input a string and count the number of spaces within the string.
 Test Data :
-Enter a number: 15
-Enter another number: 16
+Please input a string : This is a test string.
 Expected Output :
-The sum of two numbers is : 31
+"This is a test string." contains 4 spaces
 */
 using System;
 
@@ -47,6 +46,18 @@ namespace Exercises
         private static int _exe3_Sum(int n1, int n2)
         {
             return n1 + n2;
+        }
+
+        public static void SolveExercise4()
+        {
+            Console.Write("Please input a string: ");
+            string value = Console.ReadLine()!;
+            Console.WriteLine("{0} contains {1} white spaces.", value, _exe4_CountWhiteSpaces(value));
+        }
+
+        private static int _exe4_CountWhiteSpaces(string str)
+        {
+            return str.Count(s => s == ' ');
         }
     }
 }
