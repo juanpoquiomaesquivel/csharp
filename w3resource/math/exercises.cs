@@ -1,23 +1,41 @@
 /*
-2. Write a C# Sharp program to find the maximum and smallest value of two variables.
-Expected Output:
-Display the greater of two values:
-Byte : The greater of 1 and 51 is 51.
-Int16 : The greater of -2 and 52 is 52.
-Int32 : The greater of -3 and 53 is 53.
-Int64 : The greater of -4 and 54 is 54.
-Single : The greater of 5 and 55 is 55.
-Double : The greater of 6 and 56 is 56.
-Decimal: The greater of 7 and 57 is 57.
-Display the lesser of two values:
-Byte : The lesser of 1 and 51 is 1.
-Int16 : The lesser of -2 and 52 is -2.
-Int32 : The lesser of -3 and 53 is -3.
-Int64 : The lesser of -4 and 54 is -4.
-Single : The lesser of 5 and 55 is 5.
-Double : The lesser of 6 and 56 is 6.
-Decimal: The lesser of 7 and 57 is 7.
+3. Write a C# Sharp program to calculate the value that results from raising 3 to a power ranging from 0 to 32.
+3^0 = 1 (0x1)
+3^1 = 3 (0x3)
+3^2 = 9 (0x9)
+3^3 = 27 (0x1B)
+3^4 = 81 (0x51)
+3^5 = 243 (0xF3)
+3^6 = 729 (0x2D9)
+3^7 = 2,187 (0x88B)
+3^8 = 6,561 (0x19A1)
+3^9 = 19,683 (0x4CE3)
+3^10 = 59,049 (0xE6A9)
+3^11 = 177,147 (0x2B3FB)
+3^12 = 531,441 (0x81BF1)
+3^13 = 1,594,323 (0x1853D3)
+3^14 = 4,782,969 (0x48FB79)
+3^15 = 14,348,907 (0xDAF26B)
+3^16 = 43,046,721 (0x290D741)
+3^17 = 129,140,163 (0x7B285C3)
+3^18 = 387,420,489 (0x17179149)
+3^19 = 1,162,261,467 (0x4546B3DB)
+3^20 = 3,486,784,401 (0xCFD41B91)
+3^21 = 10,460,353,203 (0x26F7C52B3)
+3^22 = 31,381,059,609 (0x74E74F819)
+3^23 = 94,143,178,827 (0x15EB5EE84B)
+3^24 = 282,429,536,481 (0x41C21CB8E1)
+3^25 = 847,288,609,443 (0xC546562AA3)
+3^26 = 2,541,865,828,329 (0x24FD3027FE9)
+3^27 = 7,625,597,484,987 (0x6EF79077FBB)
+3^28 = 22,876,792,454,961 (0x14CE6B167F31)
+3^29 = 68,630,377,364,883 (0x3E6B41437D93)
+3^30 = 205,891,132,094,649 (0xBB41C3CA78B9)
+3^31 = 617,673,396,283,947 (0x231C54B5F6A2B)
+3^32 = 1,853,020,188,851,841 (0x6954FE21E3E81)
 */
+using System;
+
 namespace Exercises
 {
     class Solution
@@ -194,6 +212,16 @@ namespace Exercises
                 decimals[1],
                 Math.Min(decimals[0], decimals[1])
             );
+        }
+
+        public static void SolveExercise3()
+        {
+            int value = 3;
+
+            for (int power = 0; power <= 32; power++)
+                Console.WriteLine(
+                    $"{value}^{power} = {(long)Math.Pow(value, power):N0} (0x{(long)Math.Pow(value, power):X})"
+                );
         }
     }
 }
