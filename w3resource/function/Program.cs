@@ -1,6 +1,6 @@
-﻿// C# Sharp String : Exercises, Practice, Solution
-// C# Sharp String [68 exercises with solution]
-// reference: https://www.w3resource.com/csharp-exercises/string/index.php
+﻿// C# Sharp Function : Exercises, Practice, Solution
+// C# Sharp Function [12 exercises with solution]
+// reference: https://www.w3resource.com/csharp-exercises/function/index.php
 using Exercises;
 
 namespace W3Resource
@@ -9,7 +9,7 @@ namespace W3Resource
     {
         public static void Main(string[] args)
         {
-            Solution.SolveExercise2();
+            Solution.SolveExercise3();
         }
     }
 }

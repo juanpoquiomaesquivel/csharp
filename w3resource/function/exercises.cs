@@ -1,11 +1,13 @@
 /*
-2. Write a program in C# Sharp to create a user defined function with parameters.
+3. Write a program in C# Sharp to create a function for the sum of two numbers.
 Test Data :
-Please input a name : John
+Enter a number: 15
+Enter another number: 16
 Expected Output :
-Welcome friend John !
-Have a nice day!
+The sum of two numbers is : 31
 */
+using System;
+
 namespace Exercises
 {
     class Solution
@@ -31,6 +33,20 @@ namespace Exercises
         private static void _exe2_WelcomeTo(string? yourName)
         {
             System.Console.WriteLine("Welcome To This World! {0}", yourName);
+        }
+
+        public static void SolveExercise3()
+        {
+            Console.Write("Enter a number: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter another number: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"The sum of {num1} and {num2} is {_exe3_Sum(num1, num2)}");
+        }
+
+        private static int _exe3_Sum(int n1, int n2)
+        {
+            return n1 + n2;
         }
     }
 }
