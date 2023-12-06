@@ -1,9 +1,9 @@
 /*
-3. Write a program in C# Sharp to find the sum of the first n natural numbers using recursion.
+4. Write a program in C# Sharp to display the individual digits of a given number using recursion.
 Test Data :
-How many numbers to sum : 10
+Input any number : 1234
 Expected Output :
-The sum of first 10 natural numbers is : 55
+The digits in the number 1234 are : 1 2 3 4
 */
 using System;
 
@@ -50,8 +50,25 @@ namespace Exercises
             Console.WriteLine("The sum of first {0} natural numbers is: {1}", n, _exe3_sumN(n));
         }
 
-        private static int _exe3_sumN(int N) {
+        private static int _exe3_sumN(int N)
+        {
             return N == 1 ? 1 : N + _exe3_sumN(N - 1);
+        }
+
+        public static void SolveExercise4()
+        {
+            Console.Write("Input any number: ");
+            string number = Console.ReadLine()!;
+            _exe4_digits(number);
+        }
+
+        private static void _exe4_digits(string number)
+        {
+            if (number.Length > 0)
+            {
+                Console.Write(number[0] + " ");
+                _exe4_digits(number.Remove(0, 1));
+            }
         }
     }
 }
