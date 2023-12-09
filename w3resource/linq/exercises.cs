@@ -1,9 +1,10 @@
 /*
-2. Write a program in C# Sharp to find the +ve numbers from a list of numbers using
-two where conditions in LINQ Query.
-Expected Output:
-The numbers within the range of 1 to 11 are :
-1 3 6 9 10
+3. Write a program in C# Sharp to find the number of an array and the square of each number which is more than 20.
+Expected Output :
+{ Number = 9, SqrNo = 81 }
+{ Number = 8, SqrNo = 64 }
+{ Number = 6, SqrNo = 36 }
+{ Number = 5, SqrNo = 25 }
 */
 namespace Exercises
 {
@@ -31,6 +32,19 @@ namespace Exercises
             {
                 System.Console.Write($"{vrNum} ");
             }
+        }
+
+        public static void SolveExercise3()
+        {
+            int[] numbers = { 3, 9, 2, 8, 6, 5 };
+            var sqr =
+                from int Number in numbers
+                let SqrNo = Number * Number
+                where SqrNo > 20
+                select new { Number, SqrNo };
+            
+            foreach (var item in sqr)
+                Console.WriteLine(item);
         }
     }
 }
