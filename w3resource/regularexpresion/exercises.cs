@@ -1,11 +1,11 @@
 /*
-2. Write a C# Sharp program to calculate the average word length in a given string.
-Round the average length up to two decimal places.
+3. Write a C# Sharp program to check whether a given string of characters can be transformed into a palindrome. Return true otherwise false.
 Sample Data:
-("CPP Exercises." -> 6
-("C# syntax is highly expressive, yet it is also simple and easy to learn.") -> 4
-(“C# is an elegant and type-safe object-oriented language") -> 5.62
+("amamd") -> True
+("pamamd") -> False
+("ferre") -> True
 */
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -29,6 +29,7 @@ namespace Exercises
         {
             return Regex.IsMatch(hexColor, @"[#][0-9A-Fa-f]{6}\b");
         }
+
         public static void SolveExercise2()
         {
             string text = "#CPP Exercises.";
@@ -44,6 +45,23 @@ namespace Exercises
             string newText = Regex.Replace(text, "[^A-Za-z ]", "");
             double len = newText.Split(' ').Select(x => x.Length).Average();
             return Math.Round(len, 2);
+        }
+
+        public static void SolveExercise3()
+        {
+            string[] words = new string[] { "amamd", "pamamd", "ferre" };
+
+            foreach (var word in words)
+                Console.WriteLine(
+                    $"Original string: {word}, can be transformed into a palindrome? {_exe3_regexPalindrome(word)}"
+                );
+        }
+
+        private static bool _exe3_regexPalindrome(string word)
+        {
+            return Regex
+                    .Replace(string.Concat(word.OrderBy(c => c)), @"([a-z])\1{1}", string.Empty)
+                    .Length <= 1;
         }
     }
 }
