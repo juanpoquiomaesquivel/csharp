@@ -1,10 +1,10 @@
 /*
-3. Write a program in C# Sharp to find the number of an array and the square of each number which is more than 20.
+4. Write a program in C# Sharp to display the number and frequency of a given number from an array.
 Expected Output :
-{ Number = 9, SqrNo = 81 }
-{ Number = 8, SqrNo = 64 }
-{ Number = 6, SqrNo = 36 }
-{ Number = 5, SqrNo = 25 }
+The number and the Frequency are :
+Number 5 appears 3 times
+Number 9 appears 2 times
+Number 1 appears 1 times
 */
 namespace Exercises
 {
@@ -42,9 +42,20 @@ namespace Exercises
                 let SqrNo = Number * Number
                 where SqrNo > 20
                 select new { Number, SqrNo };
-            
+
             foreach (var item in sqr)
                 Console.WriteLine(item);
+        }
+
+        public static void SolveExercise4()
+        {
+            int[] nums = new int[] { 5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2 };
+            var n = from x in nums group x by x into y select y;
+
+            foreach (var arrNums in n)
+                Console.WriteLine(
+                    "Number " + arrNums.Key + " appears " + arrNums.Count() + " times."
+                );
         }
     }
 }
