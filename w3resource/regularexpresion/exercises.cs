@@ -1,9 +1,16 @@
 /*
-3. Write a C# Sharp program to check whether a given string of characters can be transformed into a palindrome. Return true otherwise false.
+4. Write a C# Sharp program to validate a password of length 7 to 16 characters with the following guidelines:
+• Length between 7 and 16 characters.
+• At least one lowercase letter (a-z).
+• At least one uppercase letter (A-Z).
+• At least one digit (0-9).
+• Supported special characters: ! @ # $ % ^ & * ( ) + = _ - { } [ ] : ; " ' ? < > , .
 Sample Data:
-("amamd") -> True
-("pamamd") -> False
-("ferre") -> True
+("Suuu$21g@") -> True
+("W#1g@") -> False
+("a&&g@") -> False
+("sdsd723#$Amid") -> True
+("sdsd723#$Amidkiouy") -> False
 */
 using System;
 using System.Linq;
@@ -62,6 +69,32 @@ namespace Exercises
             return Regex
                     .Replace(string.Concat(word.OrderBy(c => c)), @"([a-z])\1{1}", string.Empty)
                     .Length <= 1;
+        }
+
+        public static void SolveExercise4()
+        {
+            string[] passwords = new string[]
+            {
+                "Suuu$21g@",
+                "W#1g@",
+                "a&&g@",
+                "sdsd723#$Amid",
+                "sdsd723#$Amidkiouy"
+            };
+
+            foreach (var pw in passwords)
+                Console.WriteLine($"({pw}) -> {_exe4_regexValidate(pw)}");
+        }
+
+        private static bool _exe4_regexValidate(string password)
+        {
+            return password.Length >= 7
+                && password.Length <= 16
+                && Regex.IsMatch(password, "[A-Z]")
+                && Regex.IsMatch(password, "[a-z]")
+                && Regex.IsMatch(password, @"\d")
+                && Regex.IsMatch(password, @"[!-/:-@\[-_{-~]")
+                && !Regex.IsMatch(password, @"[^\dA-Za-z!-/:-@\[-_{-~]");
         }
     }
 }
