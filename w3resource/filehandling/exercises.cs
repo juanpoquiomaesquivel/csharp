@@ -1,13 +1,8 @@
 /*
-2. Write a program in C# Sharp to remove a file from the disk.
+3. Write a C# Sharp program to create a blank file on the disk if the same file already exists.
 Expected Output :
- Remove a file from the disk (at first create the file ) :
---------------------------------------------------------------
- The file mytest.txt deleted successfully.
- 
-  Remove a file from the disk (at first create the file ) :
---------------------------------------------------------------
- File does not exist
+
+ A file created with name mytest.txt
 */
 using System;
 
@@ -45,6 +40,24 @@ namespace Exercises
             {
                 Console.Write("The file does not exist. [PRESS TO CONTINUE]");
                 Console.ReadKey();
+            }
+        }
+
+        public static void SolveExercise3()
+        {
+            string fileName = @"mytest.txt";
+
+            try
+            {
+                if (File.Exists(fileName))
+                    File.Delete(fileName);
+
+                using (FileStream fileStr = File.Create(fileName))
+                    Console.WriteLine("A file was create with name {0}", fileName);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
             }
         }
     }
