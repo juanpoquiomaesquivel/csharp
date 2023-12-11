@@ -1,8 +1,8 @@
 /*
-3. Write a C# Sharp program to create a blank file on the disk if the same file already exists.
-Expected Output :
+4. Write a program in C# Sharp to create a file and add some text.
+Expected Output:
 
- A file created with name mytest.txt
+ A file created with content name mytest.txt 
 */
 using System;
 
@@ -54,6 +54,29 @@ namespace Exercises
 
                 using (FileStream fileStr = File.Create(fileName))
                     Console.WriteLine("A file was create with name {0}", fileName);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+            }
+        }
+
+        public static void SolveExercise4()
+        {
+            string fileName = @"mytest.txt";
+
+            try
+            {
+                if (File.Exists(fileName))
+                    File.Delete(fileName);
+
+                using (StreamWriter  fileStr = File.CreateText(fileName))
+                {
+                    fileStr.WriteLine(" Hello and Welcome");
+                    fileStr.WriteLine(" It is the first content");
+                    fileStr.WriteLine(" of the text file mytest.txt");
+                    Console.WriteLine("A file created with content name {0}", fileName);
+                }
             }
             catch (Exception exc)
             {
