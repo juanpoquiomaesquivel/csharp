@@ -1,15 +1,15 @@
 /*
-6. Write a C# Sharp program to remove the character at a given position in the
-string. The given position will be in the range 0..(string length -1) inclusive.
+7. Write a C# Sharp program to exchange the first and last characters in a given string and return the new string.
 
 Sample Input:
-"Python", 1
-"Python", o
-"Python", 4
+"abcd"
+"a"
+"xy"
 Expected Output:
-Pthon
-ython
-Pythn
+
+dbca
+a
+yx
 */
 using System;
 
@@ -93,12 +93,12 @@ namespace Exercises
         public static void SolveExercise5()
         {
             string str = "if else";
-            System.Console.WriteLine("{0}", exe4_concat(str));
+            System.Console.WriteLine("{0}", exe5_concat(str));
             str = "else";
-            System.Console.WriteLine("{0}", exe4_concat(str));
+            System.Console.WriteLine("{0}", exe5_concat(str));
         }
 
-        private static string exe4_concat(string word)
+        private static string exe5_concat(string word)
         {
             string aux = (word.Length <= 2 ? word : word.Substring(0, 2));
 
@@ -111,6 +111,28 @@ namespace Exercises
             Console.WriteLine(word.Remove(1, 1));
             Console.WriteLine(word.Remove(0, 1));
             Console.WriteLine(word.Remove(4, 1));
+        }
+
+        public static void SolveExercise7()
+        {
+            string[] words = { "abcd", "a", "xy" };
+
+            foreach (var word in words)
+                Console.WriteLine(word);
+
+            Console.WriteLine("After...");
+
+            foreach (var word in words)
+                Console.WriteLine(exe7_Invert(word));
+        }
+
+        private static string exe7_Invert(string str)
+        {
+            var len = str.Length;
+
+            return len > 1
+                ? str.Substring(len - 1, 1) + str.Substring(1, len - 2) + str.Substring(0, 1)
+                : str;
         }
     }
 }
