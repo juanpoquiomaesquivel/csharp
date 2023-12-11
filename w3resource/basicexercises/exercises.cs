@@ -1,15 +1,14 @@
 /*
-7. Write a C# Sharp program to print on screen the output of adding, subtracting, multiplying 
-and dividing two numbers entered by the user.
+8. Write a C# Sharp program that prints the multiplication table of a number as input.
 Test Data:
-Input the first number: 25
-Input the second number: 4
+Enter the number: 5
 Expected Output:
-25 + 4 = 29
-25 - 4 = 21
-25 x 4 = 100
-25 / 4 = 6
-25 mod 4 = 1
+5 * 0 = 0
+5 * 1 = 5
+5 * 2 = 10
+5 * 3 = 15
+....
+5 * 10 = 50
 */
 using System;
 
@@ -78,7 +77,7 @@ namespace Exercises
         {
             Console.Write("Input the first number: ");
             int n1 = int.Parse(Console.ReadLine()!);
-            
+
             Console.Write("Input the second number: ");
             int n2 = int.Parse(Console.ReadLine()!);
 
@@ -87,6 +86,15 @@ namespace Exercises
             Console.WriteLine($"{n1} * {n2} = {n1 * n2}");
             Console.WriteLine($"{n1} / {n2} = {n1 / n2}");
             Console.WriteLine($"{n1} mod {n2} = {n1 % n2}");
+        }
+
+        public static void SolveExercise8()
+        {
+            Console.Write("Input the number: ");
+            int mm = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i <= 10; i++)
+                Console.WriteLine("{0} * {1} = {2}", mm, i, mm * i);
         }
     }
 }
