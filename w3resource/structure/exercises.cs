@@ -1,18 +1,11 @@
 /*
-3. Write a C# Sharp program to create a nested struct that stores two data for an employee.
-Test Data:
+4. Write a C# Sharp program to create a structure, assign a value to it, and call it.
+Expected Output:
 
-Create a nested structure and store data in an array :
--------------------------------------------------------
-Name of the employee : H.Rana
-Input day of the birth : 05
-Input month of the birth : 02
-Input year for the birth : 58
-                                                                                 
-Name of the employee : S.Mathur
-Input day of the birth : 04
-Input month of the birth : 08
-Input year for the birth : 59
+Create a structure and Assign the Value and call it :                            
+---------------------------------------------------------                        
+Assign in Class:       x:7500,   y:9500                                          
+Assign in Structure:   x:750,    y:950 
 */
 using System;
 
@@ -67,6 +60,19 @@ namespace Exercises
                 emp2.DateOfBirth.Day + "/" + emp2.DateOfBirth.Month + "/" + emp2.DateOfBirth.Year
             );
         }
+
+        public static void SolveExercise4()
+        {
+            Console.Write("Assign a value to the class: ");
+            Exe4_CRandom v1 = new Exe4_CRandom();
+            v1.Value = Convert.ToInt32(Console.ReadLine());
+            
+            Console.Write("Assign a value to the struct: ");
+            Exe4_SRandom v2 = new Exe4_SRandom();
+            v2.Value = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nClass value: {0}, Struct value: {1}", v1.Value, v2.Value);
+        }
     }
 
     struct Exe1_Structure
@@ -92,5 +98,15 @@ namespace Exercises
         public int Day;
         public int Month;
         public int Year;
+    }
+
+    class Exe4_CRandom
+    {
+        public int Value;
+    }
+
+    struct Exe4_SRandom
+    {
+        public int Value;
     }
 }
