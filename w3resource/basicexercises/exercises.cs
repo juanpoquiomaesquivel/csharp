@@ -1,12 +1,15 @@
 /*
-6. Write a C# Sharp program to print the output of the multiplication of three numbers
-entered by the user.
+7. Write a C# Sharp program to print on screen the output of adding, subtracting, multiplying 
+and dividing two numbers entered by the user.
 Test Data:
-Input the first number to multiply: 2
-Input the second number to multiply: 3
-Input the third number to multiply: 6
+Input the first number: 25
+Input the second number: 4
 Expected Output:
-2 x 3 x 6 = 36
+25 + 4 = 29
+25 - 4 = 21
+25 x 4 = 100
+25 / 4 = 6
+25 mod 4 = 1
 */
 using System;
 
@@ -47,9 +50,9 @@ namespace Exercises
         public static void SolveExercise5()
         {
             Console.Write("Input the First Number: ");
-            int num1 = int.Parse(Console.ReadLine());
+            int num1 = int.Parse(Console.ReadLine()!);
             Console.Write("Input the Second Number: ");
-            int num2 = int.Parse(Console.ReadLine());
+            int num2 = int.Parse(Console.ReadLine()!);
             System.Console.WriteLine("Before swapping");
             System.Console.WriteLine($"num1 = {num1}, num2 = {num2}");
             int aux = num1;
@@ -69,6 +72,21 @@ namespace Exercises
             int num3 = Convert.ToInt32(Console.ReadLine());
             int res = num1 * num2 * num3;
             Console.WriteLine("{0} x {1} x {2} = {3}", num1, num2, num3, res);
+        }
+
+        public static void SolveExercise7()
+        {
+            Console.Write("Input the first number: ");
+            int n1 = int.Parse(Console.ReadLine()!);
+            
+            Console.Write("Input the second number: ");
+            int n2 = int.Parse(Console.ReadLine()!);
+
+            Console.WriteLine($"{n1} + {n2} = {n1 + n2}");
+            Console.WriteLine($"{n1} - {n2} = {n1 - n2}");
+            Console.WriteLine($"{n1} * {n2} = {n1 * n2}");
+            Console.WriteLine($"{n1} / {n2} = {n1 / n2}");
+            Console.WriteLine($"{n1} mod {n2} = {n1 % n2}");
         }
     }
 }
