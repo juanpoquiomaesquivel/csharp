@@ -1,16 +1,9 @@
 /*
-2. Write a C# Sharp program to display the Day properties (year, month, day,
-hour, minute, second, millisecond etc.).
+3. Write a C# Sharp program to get the day of the week for a specified date.
 
 Expected Output :
 
-year = 2016
-month = 8
-day = 16
-hour = 3
-minute = 57
-second = 32
-millisecond = 11
+The day of the week for 7/11/2016 is Monday.
 */
 namespace Exercises
 {
@@ -36,6 +29,12 @@ namespace Exercises
             System.Console.WriteLine($"minute: {dt.Minute}");
             System.Console.WriteLine($"seconds: {dt.Second}");
             System.Console.WriteLine($"millisecond: {dt.Millisecond}");
+        }
+
+        public static void SolveExercise3()
+        {
+            DateTime dt = new DateTime(2016, 7, 11);
+            Console.WriteLine($"The day of the week for {dt:d} is {dt.DayOfWeek}.");
         }
     }
 }
