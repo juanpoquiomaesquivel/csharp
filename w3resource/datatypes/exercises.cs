@@ -1,13 +1,12 @@
 /*
-4. Write a C# Sharp program that takes two numbers as input and performs an
-operation (+,-,*,x,/) on them and displays the result of that operation.
+5. Write a C# Sharp program that takes the radius of a circle as input and calculates the
+perimeter and area of the circle.
 
 Test Data
-Input first number: 20
-Input operation: -
-Input second number: 12
+Input the radius of the circle :
+12
 Expected Output :
-20 - 12 = 8
+Perimeter of Circle : 75.36
 */
 namespace Exercises
 {
@@ -108,6 +107,18 @@ namespace Exercises
 
             if (operators.Contains(op))
                 Console.WriteLine("{0} {1} {2} = {3}", num1, op, num2, res);
+        }
+
+        public static void SolveExercise5()
+        {
+            Console.Write("Input the radius of the circle: ");
+            double r = double.Parse(Console.ReadLine()!);
+            double perimeter = 2 * Math.PI * r,
+                area = Math.PI * Math.Pow(r, 2);
+
+            Console.WriteLine(
+                $"For a circle with radius r = {r}, the perimeter p = {perimeter:f3} and the area A = {area:f3}."
+            );
         }
     }
 }
