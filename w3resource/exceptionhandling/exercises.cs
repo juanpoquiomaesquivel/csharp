@@ -1,6 +1,6 @@
 /*
-4. Write a C# program that prompts the user to input a numeric integer and
-throws an exception if the number is less than 0 or greater than 1000.
+5. Write a C# program that implements a method that takes an array of integers as input
+and calculates the average value. Handle the exception if the array is empty.
 */
 using System;
 
@@ -155,6 +155,35 @@ namespace Exercises
                 Console.WriteLine("An error ocurred: " + ex.Message);
             }
         }
+
+        public static void SolveExercise5()
+        {
+            try
+            {
+                // int[] array = { };
+                int[] array = { 5, 10, 15 };
+
+                if (array.Length == 0)
+                    throw new EmptyArrayException("Array is empty. Cannot calculate the average.");
+
+                double sum = 0;
+
+                for (int i = 0; i < array.Length; i++)
+                    sum += array[i];
+
+                double avg = sum / array.Length;
+
+                Console.WriteLine("The average is: " + avg);
+            }
+            catch (EmptyArrayException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error ocurred: " + ex.Message);
+            }
+        }
     }
 
     class NegativeNumberException : Exception
@@ -166,6 +195,12 @@ namespace Exercises
     class NumberOutOfRangeException : Exception
     {
         public NumberOutOfRangeException(string message)
+            : base(message) { }
+    }
+
+    class EmptyArrayException : Exception
+    {
+        public EmptyArrayException(string message)
             : base(message) { }
     }
 }
