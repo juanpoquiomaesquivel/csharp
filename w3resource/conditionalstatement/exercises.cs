@@ -1,8 +1,9 @@
 /*
-4. Write a C# Sharp program to find out whether a given year is a leap year or not.
-Test Data : 2016
-Expected Output :
-2016 is a leap year.
+5. Write a C# Sharp program to read the age of a candidate and determine whether it is eligible 
+for casting his/her own vote.
+Test Data : 21
+Expected Output:
+Congratulation! You are eligible for casting your vote.
 */
 using System;
 
@@ -46,6 +47,19 @@ namespace Exercises
                 year,
                 year % 4 == 0 ? "is" : "is not"
             );
+        }
+
+        public static void SolveExercise5()
+        {
+            Console.Write("Enter the age of the candidate: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+            bool isEligible = age >= 18;
+            
+            if (isEligible)
+                Console.WriteLine("Congratulations! you are eligible for casting your vote.");
+            else
+                Console.WriteLine("Sorry! you are not eligible for this election, you're underage.");
+
         }
     }
 }
