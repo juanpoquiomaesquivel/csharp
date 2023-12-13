@@ -1,6 +1,6 @@
 /*
-5. Write a C# program that implements a method that takes an array of integers as input
-and calculates the average value. Handle the exception if the array is empty.
+6. Write a C# program that reads a string from the user and converts it to an integer.
+Handle the exception if the input cannot be parsed into an integer.
 */
 using System;
 
@@ -178,6 +178,25 @@ namespace Exercises
             catch (EmptyArrayException ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error ocurred: " + ex.Message);
+            }
+        }
+
+        public static void SolveExercise6()
+        {
+            try
+            {
+                Console.Write("Insert a integer number: ");
+                string userInput = Console.ReadLine()!;
+
+                int number = int.Parse(userInput);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: Invalid input. Please enter a valid integer.");
             }
             catch (Exception ex)
             {
