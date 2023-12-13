@@ -1,15 +1,15 @@
 /*
-7. Write a C# Sharp program to exchange the first and last characters in a given string and return the new string.
+8. Write a C# Sharp program to create a string which is 4 copies of the 2 front characters of
+a given string. If the given string length is less than 2 return the original string.
 
 Sample Input:
-"abcd"
+"C Sharp"
+"JS"
 "a"
-"xy"
 Expected Output:
-
-dbca
+C C C C
+JSJSJSJS
 a
-yx
 */
 using System;
 
@@ -132,6 +132,31 @@ namespace Exercises
 
             return len > 1
                 ? str.Substring(len - 1, 1) + str.Substring(1, len - 2) + str.Substring(0, 1)
+                : str;
+        }
+
+        public static void SolveExercise8()
+        {
+            string[] words = { "C Sharp", "JS", "a" };
+
+            foreach (var word in words)
+                Console.WriteLine(word);
+
+            Console.WriteLine("After...");
+
+            foreach (var word in words)
+                Console.WriteLine(exe8_Front(word));
+        }
+
+        private static string exe8_Front(string str)
+        {
+            var len = str.Length;
+
+            return len >= 2
+                ? str.Substring(0, 2)
+                    + str.Substring(0, 2)
+                    + str.Substring(0, 2)
+                    + str.Substring(0, 2)
                 : str;
         }
     }
