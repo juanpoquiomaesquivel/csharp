@@ -1,12 +1,6 @@
 /*
-5. Write a C# Sharp program that takes the radius of a circle as input and calculates the
-perimeter and area of the circle.
-
-Test Data
-Input the radius of the circle :
-12
-Expected Output :
-Perimeter of Circle : 75.36
+6. Write a C# Sharp program to display certain values of the function x = y2 + 2y + 1 
+(using integer numbers for y, ranging from -5 to +5).
 */
 namespace Exercises
 {
@@ -119,6 +113,17 @@ namespace Exercises
             Console.WriteLine(
                 $"For a circle with radius r = {r}, the perimeter p = {perimeter:f3} and the area A = {area:f3}."
             );
+        }
+
+        public static void SolveExercise6()
+        {
+            double x;
+
+            for (double y = -5D; y <= 5D; y++)
+            {
+                x = Math.Pow(y, 2) + 2 * y + 1;
+                Console.WriteLine("y = {0}, x = ({0})² + 2 * {0} + 1 = {1}", y, x);
+            }
         }
     }
 }
