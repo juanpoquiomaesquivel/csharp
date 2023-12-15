@@ -1,13 +1,12 @@
 /*
-5. Write a C# Sharp program to display the cube of an integer up to given number.
+6. Write a program in C# Sharp to display the multiplication table of a given integer.
 Test Data :
-Input number of terms : 5
+Input the number (Table to be calculated) : 15
 Expected Output :
-Number is : 1 and cube of the 1 is :1
-Number is : 2 and cube of the 2 is :8
-Number is : 3 and cube of the 3 is :27
-Number is : 4 and cube of the 4 is :64
-Number is : 5 and cube of the 5 is :125
+15 X 1 = 15
+...
+...
+15 X 10 = 150
 */
 using System;
 
@@ -72,6 +71,15 @@ namespace Exercises
                     number,
                     Math.Pow(number, 3)
                 );
+        }
+
+        public static void SolveExercise6()
+        {
+            Console.Write("Enter the number: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i <= 10; i++)
+                Console.WriteLine("{0} x {1} = {2}", num, i, num * i);
         }
     }
 }
