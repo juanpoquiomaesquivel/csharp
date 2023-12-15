@@ -1,16 +1,13 @@
 /*
-4. Write a C# Sharp program to copy the elements of one array into another array.
+5. Write a C# Sharp program in to count duplicate elements in an array.
 Test Data :
 Input the number of elements to be stored in the array :3
 Input 3 elements in the array :
-element - 0 : 15
-element - 1 : 10
-element - 2 : 12
-Expected Output:
-The elements stored in the first array are :
-15 10 12
-The elements copied into the second array are :
-15 10 12
+element - 0 : 5
+element - 1 : 1
+element - 2 : 1
+Expected Output :
+Total number of duplicate elements found in the array is : 1
 */
 using System;
 
@@ -98,6 +95,33 @@ namespace Exercises
 
             for (int i = 0; i < n; i++)
                 Console.Write(copiedArray[i] + " ");
+        }
+
+        public static void SolveExercise5()
+        {
+            int[] numbers = { 1, 98, 56, 2, 56, 2, 15, 1, 2, 2 };
+            int count = 0;
+
+            for (int i = 0; i < numbers.Length && numbers[i] != Int32.MinValue; i++)
+            {
+                bool flag = false;
+
+                for (int j = i + 1; j < numbers.Length; j++)
+                    if (numbers[j] == numbers[i])
+                    {
+                        if (!flag)
+                        {
+                            count++;
+                            flag = true;
+                        }
+
+                        numbers[j] = Int32.MinValue;
+                    }
+
+                numbers[i] = Int32.MinValue;
+            }
+
+            Console.WriteLine("Total number of duplicates is {0}.", count);
         }
     }
 }
