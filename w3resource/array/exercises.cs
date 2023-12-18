@@ -1,13 +1,14 @@
 /*
-5. Write a C# Sharp program in to count duplicate elements in an array.
+6. Write a program in C# Sharp to print all unique elements in an array.
 Test Data :
 Input the number of elements to be stored in the array :3
 Input 3 elements in the array :
-element - 0 : 5
-element - 1 : 1
+element - 0 : 1
+element - 1 : 5
 element - 2 : 1
 Expected Output :
-Total number of duplicate elements found in the array is : 1
+The unique elements found in the array are :
+5
 */
 using System;
 
@@ -102,8 +103,11 @@ namespace Exercises
             int[] numbers = { 1, 98, 56, 2, 56, 2, 15, 1, 2, 2 };
             int count = 0;
 
-            for (int i = 0; i < numbers.Length && numbers[i] != Int32.MinValue; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
+                if (numbers[i] == Int32.MinValue)
+                    continue;
+
                 bool flag = false;
 
                 for (int j = i + 1; j < numbers.Length; j++)
@@ -122,6 +126,47 @@ namespace Exercises
             }
 
             Console.WriteLine("Total number of duplicates is {0}.", count);
+        }
+
+        public static void SolveExercise6()
+        {
+            int[] numbers = { 1, 98, 56, 2, 56, 2, 15, 1, 2, 2 };
+            int[] filteredArray = new int[numbers.Length];
+            int index = 0;
+
+            Console.Write("Original array: ");
+
+            foreach (var number in numbers)
+                Console.Write(number + " ");
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] == Int32.MinValue)
+                    continue;
+
+                int count = 0;
+
+                for (int j = i + 1; j < numbers.Length; j++)
+                    if (numbers[j] == numbers[i])
+                    {
+                        numbers[j] = Int32.MinValue;
+                        count++;
+                    }
+
+                if (count == 0)
+                {
+                    filteredArray[index] = numbers[i];
+                    index++;
+                }
+            }
+
+            if (index != numbers.Length)
+                filteredArray[index] = Int32.MinValue;
+
+            Console.Write("\nArray with unique values: ");
+ 
+            for (int i = 0; i < filteredArray.Length && filteredArray[i] != Int32.MinValue; i++)
+                Console.Write(filteredArray[i] + " ");
         }
     }
 }
