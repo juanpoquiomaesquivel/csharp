@@ -1,10 +1,12 @@
 /*
-5. Write a program in C# Sharp to count the total number of words in a string.
+6. Write a program in C# Sharp to compare two strings without using a string library functions.
 Test Data :
-Input the string : This is w3resource.com
+Input the 1st string : This is first string
+Input the 2nd string : This is first string
 Expected Output :
 
-Total number of words in the string is : 3 
+The length of both strings are equal and
+also, both strings are equal.
 */
 using System;
 
@@ -46,7 +48,7 @@ namespace Exercises
         {
             Console.Write("Input the phrase: ");
             string phrase = Console.ReadLine()!;
-            
+
             Console.WriteLine("The characters of the string in reverse are: ");
 
             for (int i = phrase.Length - 1; i >= 0; i--)
@@ -59,6 +61,31 @@ namespace Exercises
             int len = sentence.Split(" ").Length;
 
             Console.WriteLine("The sentence '{0}' has {1} words.", sentence, len);
+        }
+
+        public static void SolveExercise6()
+        {
+            string word1,
+                word2;
+            word1 = "This is the first string";
+            word2 = "This is the first striwg";
+            bool flag = false;
+
+            if (word1.Length == word2.Length)
+            {
+                Console.WriteLine("Both words have the same length.");
+                flag = true;
+
+                for (int i = 0; i < word1.Length && flag; i++)
+                {
+                    if (word1[i] != word2[i])
+                        flag = false;
+                }
+            }
+            else
+                Console.WriteLine("The words do not have the same length.");
+
+            Console.WriteLine(flag ? "The words are the same." : "The words are not equal.");
         }
     }
 }
