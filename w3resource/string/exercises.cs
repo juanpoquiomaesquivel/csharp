@@ -1,12 +1,10 @@
 /*
-4. Write a program in C# Sharp to print individual characters of the string in reverse order.
+5. Write a program in C# Sharp to count the total number of words in a string.
 Test Data :
-Input the string : w3resource.com
+Input the string : This is w3resource.com
 Expected Output :
 
-The characters of the string in reverse are : 
-
-m  o  c  .  e  c  r  u  o  s  e  r  3  w 
+Total number of words in the string is : 3 
 */
 using System;
 
@@ -53,6 +51,14 @@ namespace Exercises
 
             for (int i = phrase.Length - 1; i >= 0; i--)
                 Console.Write(phrase[i] + " ");
+        }
+
+        public static void SolveExercise5()
+        {
+            string sentence = "This is w3resource.com";
+            int len = sentence.Split(" ").Length;
+
+            Console.WriteLine("The sentence '{0}' has {1} words.", sentence, len);
         }
     }
 }
