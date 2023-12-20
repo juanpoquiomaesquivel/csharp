@@ -1,9 +1,14 @@
 /*
-4. Write a program in C# Sharp to create a function to input a string and count the number of spaces within the string.
+5. Write a program in C# Sharp to calculate the sum of elements in an array.
 Test Data :
-Please input a string : This is a test string.
+Input 5 elements in the array :
+element - 0 : 5
+element - 1 : 7
+element - 2 : 3
+element - 3 : 2
+element - 4 : 9
 Expected Output :
-"This is a test string." contains 4 spaces
+The sum of the elements of the array is 26
 */
 using System;
 
@@ -52,12 +57,27 @@ namespace Exercises
         {
             Console.Write("Please input a string: ");
             string value = Console.ReadLine()!;
-            Console.WriteLine("{0} contains {1} white spaces.", value, _exe4_CountWhiteSpaces(value));
+            Console.WriteLine(
+                "{0} contains {1} white spaces.",
+                value,
+                _exe4_CountWhiteSpaces(value)
+            );
         }
 
         private static int _exe4_CountWhiteSpaces(string str)
         {
             return str.Count(s => s == ' ');
+        }
+
+        public static void SolveExercise5()
+        {
+            int[] array = { 5, 7, 3, 2, 9 };
+            Console.WriteLine("The sum of the array is: " + _exe5_SumElements(array));
+        }
+
+        private static int _exe5_SumElements(int[] array)
+        {
+            return array.Sum();
         }
     }
 }
