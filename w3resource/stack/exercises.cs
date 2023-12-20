@@ -78,6 +78,25 @@ namespace Exercises
             JxStack stackRev = stack.Reverse();
             stackRev.Show();
         }
+
+        public static void SolveExercise5()
+        {
+            JxStack stack = new JxStack();
+            stack.Push(15);
+            stack.Push(-7);
+            stack.Push(-7);
+            stack.Push(11);
+            stack.Push(-15);
+            stack.Push(2);
+            stack.Push(0);
+            stack.Push(45);
+            stack.Push(-7);
+            stack.Show();
+
+            int? maxValue = stack.FindMax();
+
+            Console.WriteLine(maxValue == null ? "The stack is empty." : "The maximun element in the stack is: " + maxValue);
+        }
     }
 
     class JxStack
@@ -220,6 +239,27 @@ namespace Exercises
             }
 
             return stackRev;
+        }
+
+        public int? FindMax()
+        {
+            if (!this.IsEmpty())
+            {
+                JxNode? aux = this._root;
+                int max = Int32.MinValue;
+
+                do
+                {
+                    if (aux!.Value > max)
+                        max = aux!.Value;
+
+                    aux = aux.Next;
+                } while (aux != null);
+
+                return max;
+            }
+
+            return null;
         }
 
         public void Show()
