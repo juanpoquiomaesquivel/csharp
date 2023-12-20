@@ -1,14 +1,10 @@
 /*
-5. Write a program in C# Sharp to calculate the sum of elements in an array.
+6. Write a program in C# Sharp to create a function to swap two integer numbers.
 Test Data :
-Input 5 elements in the array :
-element - 0 : 5
-element - 1 : 7
-element - 2 : 3
-element - 3 : 2
-element - 4 : 9
+Enter a number: 5
+Enter another number: 6
 Expected Output :
-The sum of the elements of the array is 26
+Now the 1st number is : 6 , and the 2nd number is : 5
 */
 using System;
 
@@ -78,6 +74,23 @@ namespace Exercises
         private static int _exe5_SumElements(int[] array)
         {
             return array.Sum();
+        }
+
+        public static void SolveExercise6()
+        {
+            int fNum = 4;
+            int sNum = 75;
+            Console.WriteLine("First number is: {0} and Second number is: {1}", fNum, sNum);
+            Console.WriteLine("After swap...");
+            _exe6_Swap(ref fNum, ref sNum);
+            Console.WriteLine("First number is: {0} and Second number is: {1}", fNum, sNum);
+        }
+
+        private static void _exe6_Swap(ref int n1, ref int n2)
+        {
+            int temp = n1;
+            n1 = n2;
+            n2 = temp;
         }
     }
 }
