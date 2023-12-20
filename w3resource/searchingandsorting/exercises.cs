@@ -1,5 +1,5 @@
 /*
-2. Write a C# Sharp program to sort a list of elements using Bogosort sort.
+3. Write a C# Sharp program to sort a list of elements using Bubble sort.
 */
 using System;
 
@@ -101,6 +101,36 @@ namespace Exercises
             }
 
             return newArray;
+        }
+
+        public static void SolveExercise3()
+        {
+            int[] array = { 1, 8, -6, 0, 25, -78 };
+            int n = array.Length;
+
+            for (uint i = 0; i < n; i++)
+                System.Console.Write(array[i] + " ");
+
+            _exe3_bubbleSort(array);
+            System.Console.WriteLine("\nAfter bubble sort...");
+
+            for (uint i = 0; i < n; i++)
+                System.Console.Write(array[i] + " ");
+        }
+
+        private static void _exe3_bubbleSort(int[] array)
+        {
+            int temp = 0;
+            int n = array.Length;
+
+            for (int i = 1; i < n; i++)
+            for (int j = n - 1; j >= i; j--)
+                if (array[j - 1] > array[j])
+                {
+                    temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                }
         }
     }
 }
