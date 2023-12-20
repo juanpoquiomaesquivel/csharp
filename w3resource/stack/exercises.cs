@@ -1,5 +1,5 @@
 /*
-Write a C# program to reverse the elements of a given stack.
+6. Write a C# program to find the minimum element in a stack.
 */
 namespace Exercises
 {
@@ -95,7 +95,34 @@ namespace Exercises
 
             int? maxValue = stack.FindMax();
 
-            Console.WriteLine(maxValue == null ? "The stack is empty." : "The maximun element in the stack is: " + maxValue);
+            Console.WriteLine(
+                maxValue == null
+                    ? "The stack is empty."
+                    : "The maximun element in the stack is: " + maxValue
+            );
+        }
+
+        public static void SolveExercise6()
+        {
+            JxStack stack = new JxStack();
+            stack.Push(15);
+            stack.Push(-7);
+            stack.Push(-7);
+            stack.Push(11);
+            stack.Push(-15);
+            stack.Push(2);
+            stack.Push(0);
+            stack.Push(45);
+            stack.Push(-7);
+            stack.Show();
+
+            int? minValue = stack.FindMin();
+
+            Console.WriteLine(
+                minValue == null
+                    ? "The stack is empty."
+                    : "The minimum element in the stack is: " + minValue
+            );
         }
     }
 
@@ -257,6 +284,28 @@ namespace Exercises
                 } while (aux != null);
 
                 return max;
+            }
+
+            return null;
+        }
+
+        public int? FindMin()
+        {
+            if (!this.IsEmpty())
+            {
+                JxNode? aux = this._root;
+                int min = aux!.Value;
+                aux = aux.Next;
+
+                while (aux != null)
+                {
+                    if (aux!.Value < min)
+                        min = aux!.Value;
+
+                    aux = aux.Next;
+                }
+
+                return min;
             }
 
             return null;
