@@ -1,9 +1,9 @@
 /*
-4. Write a program in C# Sharp to display the individual digits of a given number using recursion.
+5. Write a program in C# Sharp to count the number of digits in a number using recursion.
 Test Data :
-Input any number : 1234
+Input any number : 12345
 Expected Output :
-The digits in the number 1234 are : 1 2 3 4
+The number 12345 contains number of digits : 5
 */
 using System;
 
@@ -69,6 +69,25 @@ namespace Exercises
                 Console.Write(number[0] + " ");
                 _exe4_digits(number.Remove(0, 1));
             }
+        }
+
+        public static void SolveExercise5()
+        {
+            Console.Write("Input the number: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(
+                "The number {0} contains {1} number of digits.",
+                number,
+                _exe5_CountDigits(number)
+            );
+        }
+
+        private static int _exe5_CountDigits(int number)
+        {
+            if (number == 0)
+                return 0;
+
+            return _exe5_CountDigits(number / 10) + 1;
         }
     }
 }
