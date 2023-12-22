@@ -1,9 +1,13 @@
 /*
-5. Write a program in C# Sharp to count the number of digits in a number using recursion.
+6. Write a program in C to print even or odd numbers in a given range using recursion.
 Test Data :
-Input any number : 12345
+Input the range to print starting from 1 : 20
 Expected Output :
-The number 12345 contains number of digits : 5
+All even numbers from 1 to 20 are :
+2 4 6 8 10 12 14 16 18 20
+
+All odd numbers from 1 to 20 are :
+1 3 5 7 9 11 13 15 17 19
 */
 using System;
 
@@ -88,6 +92,36 @@ namespace Exercises
                 return 0;
 
             return _exe5_CountDigits(number / 10) + 1;
+        }
+
+        public static void SolveExercise6()
+        {
+            Console.Write("Input the range to print starting from: ");
+            int init = Convert.ToInt32(Console.ReadLine());
+            Console.Write("To: ");
+            int last = Convert.ToInt32(Console.ReadLine());
+
+            _exe6_PrintEvenNumbers(init, last, "even");
+            _exe6_PrintEvenNumbers(init, last, "odd");
+        }
+
+        private static void _exe6_PrintEvenNumbers(int init, int last, string numType)
+        {
+            if (numType == "even")
+            {
+                if (init % 2 == 0)
+                    Console.Write(init + " ");
+            }
+            else if (init % 2 != 0) // default
+                Console.Write(init + " ");
+
+            if (init >= last)
+            {
+                Console.WriteLine();
+                return;
+            }
+
+            _exe6_PrintEvenNumbers(init + 1, last, numType);
         }
     }
 }
