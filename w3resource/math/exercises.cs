@@ -1,14 +1,15 @@
 /*
-5. Write a C# Sharp program to determine the sign of a single value and display it on the console.
+6. Write a C# Sharp program to calculate each city's square area based on the given area
+of some cities in the United States.
 Expected Output:
-Test the sign of the following types of values:
-Byte : 0 is equal to zero.
-Int16 : -2 is less than zero.
-Int32 : -3 is less than zero.
-Int64 : -4 is less than zero.
-Single : 2.1 is greater than zero.
-Double : 6 is greater than zero.
-Decimal: -7 is less than zero.
+City                   Area (mi.)   Equivalent to a square with:
+
+Sitka, Alaska             2,870.3          53.58 miles per side
+New York City               302.6          17.40 miles per side
+Los Angeles                 468.7          21.65 miles per side
+Detroit                     138.8          11.78 miles per side
+Chicago                     227.1          15.07 miles per side
+San Diego                   325.2          18.03 miles per side
 */
 using System;
 
@@ -251,6 +252,34 @@ namespace Exercises
                 str = "less than";
 
             return str;
+        }
+
+        public static void SolveExercise6()
+        {
+            Tuple<string, double>[] areas =
+            {
+                Tuple.Create("Sitka, Alaska", 2870.3),
+                Tuple.Create("New York City", 302.6),
+                Tuple.Create("Los Angeles", 468.7),
+                Tuple.Create("Detroit", 138.8),
+                Tuple.Create("Chicago", 227.1),
+                Tuple.Create("San Diego", 325.2)
+            };
+
+            Console.WriteLine(
+                "{0,-18} {1,14:N1} {2,30}\n",
+                "City",
+                "Area (mi.)",
+                "Equivalent to a square with:"
+            );
+
+            foreach (var area in areas)
+                Console.WriteLine(
+                    "{0,-18} {1,14:N1} {2,14:N2} miles per side",
+                    area.Item1,
+                    area.Item2,
+                    Math.Round(Math.Sqrt(area.Item2), 2)
+                );
         }
     }
 }
