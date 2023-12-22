@@ -1,16 +1,8 @@
 /*
-4. Write a C# Sharp program to validate a password of length 7 to 16 characters with the following guidelines:
-• Length between 7 and 16 characters.
-• At least one lowercase letter (a-z).
-• At least one uppercase letter (A-Z).
-• At least one digit (0-9).
-• Supported special characters: ! @ # $ % ^ & * ( ) + = _ - { } [ ] : ; " ' ? < > , .
+5. Write a C# Sharp program to check whether two given strings contain the same character pattern.
 Sample Data:
-("Suuu$21g@") -> True
-("W#1g@") -> False
-("a&&g@") -> False
-("sdsd723#$Amid") -> True
-("sdsd723#$Amidkiouy") -> False
+("AACC", "PPRR") -> True
+("FFGG", "ADAD") -> False
 */
 using System;
 using System.Linq;
@@ -95,6 +87,43 @@ namespace Exercises
                 && Regex.IsMatch(password, @"\d")
                 && Regex.IsMatch(password, @"[!-/:-@\[-_{-~]")
                 && !Regex.IsMatch(password, @"[^\dA-Za-z!-/:-@\[-_{-~]");
+        }
+
+        public static void SolveExercise5()
+        {
+            string txt1 = "AACC",
+                txt2 = "PPRR";
+
+            Console.WriteLine($"Original strings: '{txt1}' and '{txt2}'");
+
+            if (txt1.Length == txt2.Length)
+                Console.WriteLine(
+                    "Check said two strings contain the same character pattern: "
+                        + _exe5_SamePattern(txt1, txt2)
+                );
+
+            txt1 = "FFGG";
+            txt2 = "ADAD";
+
+            Console.WriteLine($"Original strings: '{txt1}' and '{txt2}'");
+
+            if (txt1.Length == txt2.Length)
+                Console.WriteLine(
+                    "Check said two strings contain the same character pattern: "
+                        + _exe5_SamePattern(txt1, txt2)
+                );
+        }
+
+        private static bool _exe5_SamePattern(string text1, string text2)
+        {
+            for (int i = 0; i < text1.Length; i++)
+                if (
+                    text1.IndexOf(text1.Substring(i, 1), i + 1)
+                    != text2.IndexOf(text2.Substring(i, 1), i + 1)
+                )
+                    return false;
+
+            return true;
         }
     }
 }
