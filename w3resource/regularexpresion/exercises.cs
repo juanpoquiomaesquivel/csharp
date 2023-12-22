@@ -1,8 +1,8 @@
 /*
-5. Write a C# Sharp program to check whether two given strings contain the same character pattern.
+6. Write a C# Sharp program to check for repeated occurrences of words in a given string.
 Sample Data:
-("AACC", "PPRR") -> True
-("FFGG", "ADAD") -> False
+("C# C# syntax is highly expressive, yet it is is also simple and easy to to learn learn.") -> 3 matches found
+("Red Green Green Black Black Green.") -> 2 matches found
 */
 using System;
 using System.Linq;
@@ -124,6 +124,34 @@ namespace Exercises
                     return false;
 
             return true;
+        }
+
+        public static void SolveExercise6()
+        {
+            Regex rx = new Regex(
+                @"\b(?<word>\w+)\s+(\k<word>)\b",
+                RegexOptions.Compiled | RegexOptions.IgnoreCase
+            );
+
+            string text =
+                "C# C# syntax is highly expressive, yet it is is also simple and easy to to learn learn.";
+            //string text = "Red Green Green Black Black Green.";
+            Console.WriteLine("Original string: \n" + text);
+
+            MatchCollection matches = rx.Matches(text);
+
+            Console.WriteLine("{0} matches found in the said string:\n   ", matches.Count);
+
+            foreach (Match match in matches)
+            {
+                GroupCollection groups = match.Groups;
+                Console.WriteLine(
+                    "'{0}' repeated at positions {1} and {2}",
+                    groups["word"].Value,
+                    groups[0].Index,
+                    groups[1].Index
+                );
+            }
         }
     }
 }
