@@ -1,13 +1,19 @@
 /*
-5. Write a C# Sharp program to create a text file and read it.
+6. Write a program in C# Sharp to create a file and write an array of strings to the file.
+Test Data :
+Input number of lines to write in the file :2
+Input 2 strings below :
+Input line 1 : this is 1st line
+Input line 2 : this is 2nd line
 Expected Output :
 
- Here is the content of the file mytest.txt :
- Hello and Welcome
- It is the first content
- of the text file mytest.txt
+ The content of the file is  :
+----------------------------------
+ this is 1st line
+ this is 2nd line
 */
 using System;
+using System.IO;
 
 namespace Exercises
 {
@@ -120,6 +126,45 @@ namespace Exercises
             catch (Exception MyExcep)
             {
                 Console.WriteLine(MyExcep.ToString());
+            }
+        }
+
+        public static void SolveExercise6()
+        {
+            string fileName = @"mytest.txt";
+            string[] arrLines;
+            int n,
+                i;
+
+            Console.Write("\n\nCreate a file and write an array of strings:\n");
+            Console.Write("---------------------------------------------------\n");
+
+            if (File.Exists(fileName))
+                File.Delete(fileName);
+
+            Console.Write("Input number of lines to write in the file: ");
+            n = Convert.ToInt32(Console.ReadLine());
+            arrLines = new string[n];
+            Console.Write("Input {0} strings below...\n", n);
+
+            for (i = 0; i < n; i++)
+            {
+                Console.Write("Input line {0} : ", i + 1);
+                arrLines[i] = Console.ReadLine();
+            }
+
+            System.IO.File.WriteAllLines(fileName, arrLines);
+
+            using (StreamReader sr = File.OpenText(fileName))
+            {
+                string s = "";
+                Console.Write("\nThe content of the file is:\n", n);
+                Console.Write("----------------------------------\n");
+
+                while ((s = sr.ReadLine()) != null)
+                    Console.WriteLine(" {0} ", s);
+
+                Console.WriteLine();
             }
         }
     }
