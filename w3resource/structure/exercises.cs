@@ -1,11 +1,10 @@
 /*
-5. Write a program in C# Sharp that shows what happens when a structure and a class instance are passed to a method.
+6. Write a program in C# Sharp that declares a struct with a property, a method, and a private field.
 Expected Output:
 
-When a structure and a class instance is passed to a method :
---------------------------------------------------------------
-ns.n = 5
-nc.n = 8
+Declares a structure with a property, a method, and a private field :
+----------------------------------------------------------------------
+The stored value is: 15
 */
 using System;
 
@@ -102,6 +101,15 @@ namespace Exercises
         {
             st.N = 8;
         }
+
+        public static void SolveExercise6()
+        {
+            Exe6_Struct str = new Exe6_Struct();
+            str.n = 22;
+            str.showStoredValue();
+            str.n = 987;
+            str.showStoredValue();
+        }
     }
 
     struct Exe1_Structure
@@ -147,5 +155,25 @@ namespace Exercises
     struct Exe5_SExample
     {
         public int N;
+    }
+
+    struct Exe6_Struct
+    {
+        private int number;
+
+        public int n
+        {
+            get { return number; }
+            set
+            {
+                if (value < 100)
+                    number = value;
+            }
+        }
+
+        public void showStoredValue()
+        {
+            Console.WriteLine("The stored value is: " + number);
+        }
     }
 }
