@@ -1,13 +1,13 @@
 /*
-5. Write a program in C# Sharp to display the characters and frequency of each character in a given string.
-Test Data:
-Input the string: apple
+6. Write a program in C# Sharp to display the name of the days of the week.
 Expected Output:
-The frequency of the characters are :
-Character a: 1 times
-Character p: 2 times
-Character l: 1 times
-Character e: 1 times
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
 */
 namespace Exercises
 {
@@ -70,6 +70,27 @@ namespace Exercises
                 Console.WriteLine(
                     "Letter " + arrLetts.Key + " appears " + arrLetts.Count() + " times."
                 );
+        }
+
+        public static void SolveExercise6()
+        {
+            string[] daysOfTheWeek =
+            {
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            };
+
+            Console.WriteLine("Days of the week:");
+
+            var days = from day in daysOfTheWeek select day;
+
+            foreach (var day in days)
+                Console.WriteLine(day);
         }
     }
 }
