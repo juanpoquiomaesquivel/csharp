@@ -1,17 +1,24 @@
 /*
-5. Write a C# Sharp program to get a DateTime value that represents the current date and time on the local computer.
+7. Write a C# Sharp program to get the time of day from a given array of date time values.
 
+Array of DateTime :
+    DateTime[] dates = { DateTime.Now,
+                           new DateTime(2016, 8, 16, 9, 28, 0),
+                           new DateTime(2011, 5, 28, 10, 35, 0),
+                           new DateTime(1979, 12, 25, 14, 30, 0) };
 Expected Output :
 
-English (Ireland):
-   Local date and time: 20/08/2016 15:49:03, Local
-   UTC date and time: 20/08/2016 10:19:03, Utc
+Day: 8/20/2016 Time: 15:58:26.3566320
+Day: 8/20/2016 Time: 3:58 PM
                                                                         
-English (South Africa):
-   Local date and time: 2016-08-20 03:49:03 PM, Local
-   UTC date and time: 2016-08-20 10:19:03 AM, Utc
+Day: 8/16/2016 Time: 09:28:00
+Day: 8/16/2016 Time: 9:28 AM
                                                                         
-......
+Day: 5/28/2011 Time: 10:35:00
+Day: 5/28/2011 Time: 10:35 AM
+                                                                        
+Day: 12/25/1979 Time: 14:30:00
+Day: 12/25/1979 Time: 2:30 PM
 */
 using System;
 using System.Globalization;
@@ -85,6 +92,22 @@ namespace Exercises
                     utcDate.ToString(culture),
                     utcDate.Kind
                 );
+            }
+        }
+
+        public static void SolveExercise7()
+        {
+            DateTime[] dates =
+            {
+                DateTime.Now,
+                new DateTime(2016, 8, 16, 9, 28, 0),
+                new DateTime(2011, 5, 28, 10, 35, 0),
+                new DateTime(1979, 12, 25, 14, 30, 0)
+            };
+            foreach (var date in dates)
+            {
+                Console.WriteLine("Day: {0:d} Time: {1:g}", date.Date, date.TimeOfDay);
+                Console.WriteLine("Day: {0:d} Time: {0:t}\n", date);
             }
         }
     }
