@@ -1,11 +1,11 @@
 /*
-4. Write a C# Sharp program to create a structure, assign a value to it, and call it.
+5. Write a program in C# Sharp that shows what happens when a structure and a class instance are passed to a method.
 Expected Output:
 
-Create a structure and Assign the Value and call it :                            
----------------------------------------------------------                        
-Assign in Class:       x:7500,   y:9500                                          
-Assign in Structure:   x:750,    y:950 
+When a structure and a class instance is passed to a method :
+--------------------------------------------------------------
+ns.n = 5
+nc.n = 8
 */
 using System;
 
@@ -66,12 +66,41 @@ namespace Exercises
             Console.Write("Assign a value to the class: ");
             Exe4_CRandom v1 = new Exe4_CRandom();
             v1.Value = Convert.ToInt32(Console.ReadLine());
-            
+
             Console.Write("Assign a value to the struct: ");
             Exe4_SRandom v2 = new Exe4_SRandom();
             v2.Value = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("\nClass value: {0}, Struct value: {1}", v1.Value, v2.Value);
+        }
+
+        public static void SolveExercise5()
+        {
+            Exe5_CExample cl = new Exe5_CExample();
+            Exe5_SExample st = new Exe5_SExample();
+            cl.N = 5;
+            st.N = 5;
+
+            Console.WriteLine("Printing values: class -> {0}, struct -> {1}", cl.N, st.N);
+
+            _exe5_ChangeClass(cl);
+            _exe5_ChangeStruct(st);
+
+            Console.WriteLine(
+                "[After methods] Printing values: class -> {0}, struct -> {1}",
+                cl.N,
+                st.N
+            );
+        }
+
+        private static void _exe5_ChangeClass(Exe5_CExample cl)
+        {
+            cl.N = 8;
+        }
+
+        private static void _exe5_ChangeStruct(Exe5_SExample st)
+        {
+            st.N = 8;
         }
     }
 
@@ -108,5 +137,15 @@ namespace Exercises
     struct Exe4_SRandom
     {
         public int Value;
+    }
+
+    class Exe5_CExample
+    {
+        public int N;
+    }
+
+    struct Exe5_SExample
+    {
+        public int N;
     }
 }
