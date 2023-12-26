@@ -1,10 +1,13 @@
 /*
-4. Write a program in C# Sharp to display the number and frequency of a given number from an array.
-Expected Output :
-The number and the Frequency are :
-Number 5 appears 3 times
-Number 9 appears 2 times
-Number 1 appears 1 times
+5. Write a program in C# Sharp to display the characters and frequency of each character in a given string.
+Test Data:
+Input the string: apple
+Expected Output:
+The frequency of the characters are :
+Character a: 1 times
+Character p: 2 times
+Character l: 1 times
+Character e: 1 times
 */
 namespace Exercises
 {
@@ -55,6 +58,17 @@ namespace Exercises
             foreach (var arrNums in n)
                 Console.WriteLine(
                     "Number " + arrNums.Key + " appears " + arrNums.Count() + " times."
+                );
+        }
+
+        public static void SolveExercise5()
+        {
+            string word = "apple";
+            var n = from x in word group x by x into y select y;
+
+            foreach (var arrLetts in n)
+                Console.WriteLine(
+                    "Letter " + arrLetts.Key + " appears " + arrLetts.Count() + " times."
                 );
         }
     }
