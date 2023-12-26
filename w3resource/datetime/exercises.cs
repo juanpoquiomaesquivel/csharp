@@ -1,17 +1,21 @@
 /*
-4. Write a C# Sharp program to display the number of days of the year between two specified years.
+5. Write a C# Sharp program to get a DateTime value that represents the current date and time on the local computer.
 
 Expected Output :
 
-12/31/2001: day 365 of 2001
-12/31/2002: day 365 of 2002
-12/31/2003: day 365 of 2003
-12/31/2004: day 366 of 2004 (Leap Year)
-12/31/2005: day 365 of 2005
-12/31/2006: day 365 of 2006
-12/31/2007: day 365 of 2007
-12/31/2008: day 366 of 2008 (Leap Year)
+English (Ireland):
+   Local date and time: 20/08/2016 15:49:03, Local
+   UTC date and time: 20/08/2016 10:19:03, Utc
+                                                                        
+English (South Africa):
+   Local date and time: 2016-08-20 03:49:03 PM, Local
+   UTC date and time: 2016-08-20 10:19:03 AM, Utc
+                                                                        
+......
 */
+using System;
+using System.Globalization;
+
 namespace Exercises
 {
     class Solution
@@ -57,6 +61,29 @@ namespace Exercises
                     display.DayOfYear,
                     display.Year,
                     DateTime.IsLeapYear(display.Year) ? "(Leap Year)" : ""
+                );
+            }
+        }
+
+        public static void SolveExercise5()
+        {
+            DateTime localDate = DateTime.Now;
+            DateTime utcDate = DateTime.UtcNow;
+            string[] cultureNames = { "en-IE", "en-ZA", "fr-CA", "de-CH", "ro-RO" };
+
+            foreach (var cultureName in cultureNames)
+            {
+                var culture = new CultureInfo(cultureName);
+                Console.WriteLine("{0}:", culture.NativeName);
+                Console.WriteLine(
+                    "   Local date and time: {0}, {1:G}",
+                    localDate.ToString(culture),
+                    localDate.Kind
+                );
+                Console.WriteLine(
+                    "   UTC date and time: {0}, {1:G}\n",
+                    utcDate.ToString(culture),
+                    utcDate.Kind
                 );
             }
         }
