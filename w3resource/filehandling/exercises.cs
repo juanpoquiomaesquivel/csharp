@@ -1,8 +1,11 @@
 /*
-4. Write a program in C# Sharp to create a file and add some text.
-Expected Output:
+5. Write a C# Sharp program to create a text file and read it.
+Expected Output :
 
- A file created with content name mytest.txt 
+ Here is the content of the file mytest.txt :
+ Hello and Welcome
+ It is the first content
+ of the text file mytest.txt
 */
 using System;
 
@@ -70,7 +73,7 @@ namespace Exercises
                 if (File.Exists(fileName))
                     File.Delete(fileName);
 
-                using (StreamWriter  fileStr = File.CreateText(fileName))
+                using (StreamWriter fileStr = File.CreateText(fileName))
                 {
                     fileStr.WriteLine(" Hello and Welcome");
                     fileStr.WriteLine(" It is the first content");
@@ -81,6 +84,42 @@ namespace Exercises
             catch (Exception exc)
             {
                 Console.WriteLine(exc.ToString());
+            }
+        }
+
+        public static void SolveExercise5()
+        {
+            string fileName = @"mytest.txt";
+
+            try
+            {
+                if (File.Exists(fileName))
+                    File.Delete(fileName);
+
+                Console.Write("\n\nCreate a file with text and read the file:\n");
+                Console.Write("-------------------------------------------------\n");
+
+                using (StreamWriter fileStr = File.CreateText(fileName))
+                {
+                    fileStr.WriteLine("Hello and Welcome");
+                    fileStr.WriteLine("It is the first content");
+                    fileStr.WriteLine("of the text file mytest.txt");
+                }
+
+                using (StreamReader sr = File.OpenText(fileName))
+                {
+                    string s = "";
+                    Console.WriteLine("Here is the content of the file mytest.txt : ");
+
+                    while ((s = sr!.ReadLine()) != null)
+                        Console.WriteLine(s);
+
+                    Console.WriteLine("");
+                }
+            }
+            catch (Exception MyExcep)
+            {
+                Console.WriteLine(MyExcep.ToString());
             }
         }
     }
