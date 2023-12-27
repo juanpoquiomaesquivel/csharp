@@ -1,15 +1,16 @@
 /*
-9. Write a C# Sharp program to create a string with the last char added at the front
-and back of a given string of length 1 or more.
+10. Write a C# Sharp program to check if a given positive number is a multiple of 3 or 7.
 
 Sample Input:
-"Red"
-"Green"
-"1"
+3
+14
+12
+37
 Expected Output:
-dRedd
-nGreenn
-111
+True
+True
+True
+False
 */
 using System;
 
@@ -174,6 +175,18 @@ namespace Exercises
 
             foreach (var item in words)
                 Console.WriteLine(item);
+        }
+
+        public static void SolveExercise10()
+        {
+            int[] numbers = { 3, 14, 12, 37 };
+
+            foreach (var number in numbers)
+                Console.WriteLine(
+                    "Is {0} multiple of 3 or 7? {1}",
+                    number,
+                    number % 3 == 0 || number % 7 == 0
+                );
         }
     }
 }
