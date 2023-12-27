@@ -1,15 +1,15 @@
 /*
-8. Write a C# Sharp program to create a string which is 4 copies of the 2 front characters of
-a given string. If the given string length is less than 2 return the original string.
+9. Write a C# Sharp program to create a string with the last char added at the front
+and back of a given string of length 1 or more.
 
 Sample Input:
-"C Sharp"
-"JS"
-"a"
+"Red"
+"Green"
+"1"
 Expected Output:
-C C C C
-JSJSJSJS
-a
+dRedd
+nGreenn
+111
 */
 using System;
 
@@ -158,6 +158,22 @@ namespace Exercises
                     + str.Substring(0, 2)
                     + str.Substring(0, 2)
                 : str;
+        }
+
+        public static void SolveExercise9()
+        {
+            string[] words = { "Red", "Green", "1" };
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                Console.WriteLine("\"{0}\"", words[i]);
+                int len = words[i].Length;
+                char c = words[i][len - 1];
+                words[i] = c + words[i] + c;
+            }
+
+            foreach (var item in words)
+                Console.WriteLine(item);
         }
     }
 }
