@@ -1,6 +1,6 @@
 /*
-6. Write a C# program that reads a string from the user and converts it to an integer.
-Handle the exception if the input cannot be parsed into an integer.
+7. Write a C# program that reads a list of integers from the user. Handle the exception
+that occurs if the user enters a value outside the range of Int32.
 */
 using System;
 
@@ -201,6 +201,45 @@ namespace Exercises
             catch (Exception ex)
             {
                 Console.WriteLine("An error ocurred: " + ex.Message);
+            }
+        }
+
+        public static void SolveExercise7()
+        {
+            List<int> integers = new List<int>();
+
+            try
+            {
+                Console.WriteLine("Input a list of integers (Input 'exit' to finish):");
+
+                while (true)
+                {
+                    Console.Write("Input an integer: ");
+                    string input = Console.ReadLine()!;
+
+                    if (input.ToLower() == "exit")
+                        break;
+
+                    int number = int.Parse(input);
+                    integers.Add(number);
+                }
+
+                Console.WriteLine("Numbers entered:");
+
+                foreach (int number in integers)
+                    Console.WriteLine(number);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: Invalid input. Please enter a valid integer.");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Error: The value entered is outside the range of Int32.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
     }
