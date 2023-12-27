@@ -1,14 +1,13 @@
 /*
-8. Write a C# Sharp program that prints the multiplication table of a number as input.
+9. Write a C# Sharp program that takes four numbers as input to calculate and print the average.
 Test Data:
-Enter the number: 5
+Enter the First number: 10
+Enter the Second number: 15
+Enter the third number: 20
+Enter the four number: 30
+
 Expected Output:
-5 * 0 = 0
-5 * 1 = 5
-5 * 2 = 10
-5 * 3 = 15
-....
-5 * 10 = 50
+The average of 10 , 15 , 20 , 30 is: 18
 */
 using System;
 
@@ -95,6 +94,26 @@ namespace Exercises
 
             for (int i = 0; i <= 10; i++)
                 Console.WriteLine("{0} * {1} = {2}", mm, i, mm * i);
+        }
+
+        public static void SolveExercise9()
+        {
+            int[] nums = new int[4];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                Console.Write("Enter the number {0}: ", i + 1);
+                nums[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            Console.WriteLine(
+                "The average of {0}, {1}, {2} and {3} is {4}",
+                nums[0],
+                nums[1],
+                nums[2],
+                nums[3],
+                nums.Average()
+            );
         }
     }
 }
