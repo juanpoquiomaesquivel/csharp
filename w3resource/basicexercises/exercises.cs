@@ -1,13 +1,12 @@
 /*
-9. Write a C# Sharp program that takes four numbers as input to calculate and print the average.
+10. Write a C# Sharp program that takes three numbers (x,y,z) as input and outputs (x+y).z and x.y + y.z.
 Test Data:
-Enter the First number: 10
-Enter the Second number: 15
-Enter the third number: 20
-Enter the four number: 30
+Enter first number - 5
+Enter second number - 6
+Enter third number - 7
 
 Expected Output:
-The average of 10 , 15 , 20 , 30 is: 18
+Result of specified numbers 5, 6 and 7, (x+y).z is 77 and x.y + y.z is 72
 */
 using System;
 
@@ -113,6 +112,23 @@ namespace Exercises
                 nums[2],
                 nums[3],
                 nums.Average()
+            );
+        }
+
+        public static void SolveExercise10()
+        {
+            double x,
+                y,
+                z;
+            Console.Write("Enter the first number: ");
+            x = int.Parse(Console.ReadLine()!);
+            Console.Write("Enter the second number: ");
+            y = int.Parse(Console.ReadLine()!);
+            Console.Write("Enter the thrid number: ");
+            z = int.Parse(Console.ReadLine()!);
+
+            Console.WriteLine(
+                $"The result of specified numbers {x}, {y} and {z}, (x+y).z = {(x + y) * z} and x.y + y.z = {x * y + y * z}"
             );
         }
     }
