@@ -1,6 +1,6 @@
 /*
-7. Write a C# program that reads a list of integers from the user. Handle the exception
-that occurs if the user enters a value outside the range of Int32.
+8. Write a C# program that implements a method that divides two numbers. Handle
+the DivideByZeroException that occurs if the denominator is 0.
 */
 using System;
 
@@ -236,6 +236,36 @@ namespace Exercises
             catch (OverflowException)
             {
                 Console.WriteLine("Error: The value entered is outside the range of Int32.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+        }
+
+        public static void SolveExercise8()
+        {
+            int num1,
+                num2,
+                res;
+
+            try
+            {
+                Console.Write("Enter the first number: ");
+                num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the second number: ");
+                num2 = Convert.ToInt32(Console.ReadLine());
+
+                res = num1 / num2;
+                Console.WriteLine("The result of the division is: " + res);
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Error: Division by zero is not allowed.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: Invalid input. Please enter valid integers.");
             }
             catch (Exception ex)
             {
