@@ -1,14 +1,19 @@
 /*
-6. Write a program in C# Sharp to print all unique elements in an array.
+7. Write a C# Sharp program to merge two arrays of the same size sorted in ascending order.
 Test Data :
-Input the number of elements to be stored in the array :3
+Input the number of elements to be stored in the first array :3
 Input 3 elements in the array :
 element - 0 : 1
-element - 1 : 5
-element - 2 : 1
-Expected Output :
-The unique elements found in the array are :
-5
+element - 1 : 2
+element - 2 : 3
+Input the number of elements to be stored in the second array :3
+Input 3 elements in the array:
+element - 0 : 1
+element - 1 : 2
+element - 2 : 3
+Expected Output:
+The merged array in ascending order is :
+1 1 2 2 3 3
 */
 using System;
 
@@ -164,9 +169,36 @@ namespace Exercises
                 filteredArray[index] = Int32.MinValue;
 
             Console.Write("\nArray with unique values: ");
- 
+
             for (int i = 0; i < filteredArray.Length && filteredArray[i] != Int32.MinValue; i++)
                 Console.Write(filteredArray[i] + " ");
+        }
+
+        public static void SolveExercise7()
+        {
+            int[] arr1 =  { 1, 2, 3 },
+                arr2 =  { 1, 2, 3 };
+            int[] merged = new int[6];
+
+            for (int i = 0; i < 3; i++)
+                merged[i] = arr1[i];
+
+            for (int i = 3; i < 6; i++)
+                merged[i] = arr2[i - 3];
+
+            int temp = 0;
+
+            for (int i = 1; i < 6; i++)
+            for (int j = 5; j >= i; j--)
+                if (merged[j - 1] > merged[j])
+                {
+                    temp = merged[j];
+                    merged[j] = merged[j - 1];
+                    merged[j - 1] = temp;
+                }
+
+            foreach (var value in merged)
+                Console.Write("{0} ", value);
         }
     }
 }
