@@ -1,12 +1,10 @@
 /*
-7. Write a program in C# Sharp to display the multiplication table vertically from 1 to n.
-Test Data :
-Input upto the table number starting from 1 : 8
+8. Write a C# Sharp program to display the n terms of odd natural numbers and their sums.
+Test Data
+Input number of terms : 10
 Expected Output :
-Multiplication table from 1 to 8
-1x1 = 1, 2x1 = 2, 3x1 = 3, 4x1 = 4, 5x1 = 5, 6x1 = 6, 7x1 = 7, 8x1 = 8
-...
-1x10 = 10, 2x10 = 20, 3x10 = 30, 4x10 = 40, 5x10 = 50, 6x10 = 60, 7x10 = 70, 8x10 = 80
+The odd numbers are :1 3 5 7 9 11 13 15 17 19
+The Sum of odd Natural Number upto 10 terms : 100
 */
 using System;
 
@@ -90,6 +88,24 @@ namespace Exercises
             for (int i = 1; i <= n; i++)
             for (int j = 0; j <= 10; j++)
                 Console.WriteLine("{0} x {1} = {2}", i, j, i * j);
+        }
+
+        public static void SolveExercise8()
+        {
+            Console.Write("Enter the number of terms: ");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int sum = 0,
+                count = 0;
+
+            Console.Write("Odd numbers: ");
+            for (int i = 1; count < num; i += 2)
+            {
+                Console.Write("{0} ", i);
+                count++;
+                sum += i;
+            }
+
+            Console.WriteLine("\nThe sum is: " + sum);
         }
     }
 }
