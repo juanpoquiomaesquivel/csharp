@@ -1,9 +1,11 @@
 /*
-7. Write a C# Sharp program to accept a person's height in centimeters and
-categorize them according to their height.
-Test Data : 135
+8. Write a C# Sharp program to find the largest of three numbers.
+Test Data :
+Input the 1st number :25
+Input the 2nd number :63
+Input the 3rd number :10
 Expected Output :
-The person is Dwarf.
+The 2nd Number is the greatest among three
 */
 using System;
 
@@ -88,6 +90,20 @@ namespace Exercises
                 Console.WriteLine("The person is average.");
             else
                 Console.WriteLine("The person is dwarf.");
+        }
+
+        public static void SolveExercise8()
+        {
+            int n1 = 16,
+                n2 = 29,
+                n3 = 3;
+
+            if (n1 >= n2 && n1 >= n3)
+                Console.WriteLine("The largest number is {0}", n1);
+            else if (n2 >= n1 && n2 >= n3)
+                Console.WriteLine("The largest number is {0}", n2);
+            else if (n3 >= n1 && n3 >= n2)
+                Console.WriteLine("The largest number is {0}", n3);
         }
     }
 }
