@@ -1,15 +1,10 @@
 /*
-7. Write a C# Sharp program that takes distance and time as input and
-displays speed in kilometres per hour and miles per hour.
+8. Write a C# Sharp program that takes the radius of a sphere as input and calculates and displays the surface and volume of the sphere.
 Test Data:
-Input distance(metres): 50000
-Input timeSec(hour): 1
-Input timeSec(minutes): 35
-Input timeSec(seconds): 56
+Radius: 2
 Expected Output:
-Your speed in metres/sec is 8.686588
-Your speed in km/h is 31.27172
-Your speed in miles/h is 19.4355
+50.26548
+33.51032
 */
 namespace Exercises
 {
@@ -159,6 +154,16 @@ namespace Exercises
             Console.WriteLine("Your speed in m/s is {0}", v1);
             Console.WriteLine("Your speed in km/h is {0}", v2);
             Console.WriteLine("Your speed in mil/h is {0}", v3);
+        }
+
+        public static void SolveExercise8()
+        {
+            double r = 2d;
+            double A = 4 * Math.PI * Math.Pow(r, 2);
+            double V = (4 / 3) * Math.PI * Math.Pow(r, 3);
+
+            Console.WriteLine("Radius: {0}", r);
+            Console.WriteLine("A = {0}, V = {1}", A, V);
         }
     }
 }
