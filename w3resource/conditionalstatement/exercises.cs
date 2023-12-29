@@ -1,9 +1,9 @@
 /*
-6. Write a C# Sharp program to read the value of an integer m and display the value of n is
-1 when m is larger than 0, 0 when m is 0 and -1 when m is less than 0.
-Test Data : -5
-Expected Output:
-The value of n = -1
+7. Write a C# Sharp program to accept a person's height in centimeters and
+categorize them according to their height.
+Test Data : 135
+Expected Output :
+The person is Dwarf.
 */
 using System;
 
@@ -75,6 +75,19 @@ namespace Exercises
                 n = 0;
 
             Console.WriteLine("The value of 'n' is {0}.", n);
+        }
+
+        public static void SolveExercise7()
+        {
+            Console.Write("Enter your height in centimeters: ");
+            int height = Convert.ToInt32(Console.ReadLine());
+
+            if (height > 160)
+                Console.WriteLine("The person is tall.");
+            else if (height <= 160 && height >= 150)
+                Console.WriteLine("The person is average.");
+            else
+                Console.WriteLine("The person is dwarf.");
         }
     }
 }

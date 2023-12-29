@@ -9,7 +9,7 @@ namespace W3Resource
     {
         public static void Main(string[] args)
         {
-            Solution.SolveExercise6();
+            Solution.SolveExercise7();
         }
     }
 }
